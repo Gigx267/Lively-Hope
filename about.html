@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About Us - LivelyHope World Outreach</title>
+    <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="LOGO.png">
+
+<link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .heading-font { font-family: 'Playfair Display', serif; }
+        .body-font { font-family: 'Inter', sans-serif; }
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(184, 135, 10, 0.2);
+        }
+        .stat-card:hover .stat-number {
+            transform: scale(1.05);
+        }
+        .stat-number {
+            transition: transform 0.3s ease;
+        }
+        .value-card {
+            transition: all 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-6px);
+            background-color: #1B3A6B;
+            color: white;
+        }
+        .value-card:hover .value-icon {
+            color: #B8870A;
+        }
+        .value-card:hover .value-title {
+            color: white;
+        }
+        .value-card:hover .value-text {
+            color: rgba(255,255,255,0.8);
+        }
+        /* Mobile menu enhanced background & smoothness */
+        #mobile-menu {
+            background-color: #0B2A4F; /* deep rich navy background for dropdown */
+            backdrop-filter: blur(0px);
+            background-image: linear-gradient(145deg, #0B2A4F 0%, #08203E 100%);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+        }
+        .mobile-link {
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            border-left: 3px solid transparent;
+            padding-left: 12px;
+            transition: all 0.2s ease;
+        }
+        .mobile-link:hover {
+            border-left-color: #B8870A;
+            padding-left: 20px;
+            color: #B8870A !important;
+        }
+        /* fix for iOS smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 1023px) {
+            body {
+                padding-top: 73px;
+            }
+        }
+    </style>
+</head>
+<body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px] lg:pt-[83px]">
+
+    <!-- Navigation (matching homepage style, with enhanced mobile menu background) -->
+    <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center">
+                    <img style="height: 50px; opacity: 0.85;" src="LHWOF_logo_final (1).svg" alt="LHWOF Logo" onerror="this.style.display='none'; document.getElementById('fallback-fire').style.display='block'">
+                    <span id="fallback-fire" class="text-3xl hidden mr-2">🔥</span>
+                </div>
+                <div>
+                    <span class="heading-font text-2xl font-bold tracking-tight text-[#1B3A6B]">LivelyHope</span>
+                    <p class="text-[9px] text-[#4A90D9] font-semibold tracking-[0.25em] uppercase">World Outreach</p>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-wider uppercase text-neutral-600">
+                 <a href="index.html" class="hover:text-[#B8870A] transition-colors duration-200 text-[#B8870A]">Home</a>
+                <a href="story.html" class="hover:text-[#B8870A] transition-colors duration-200">Our Story</a>
+               
+                <a href="programme.html" class="hover:text-[#B8870A] transition-colors duration-200">Programmes</a>
+                <a href="mission.html" class="hover:text-[#B8870A] transition-colors duration-200">Mission</a>
+                <a href="ministries.html" class="hover:text-[#B8870A] transition-colors duration-200">Ministries</a>
+                <a href="scholarship.html" class="hover:text-[#B8870A] transition-colors duration-200">Scholarships</a>
+                <a href="contact.html" class="hover:text-[#B8870A] transition-colors duration-200">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#1B3A6B] text-white rounded-full hover:bg-[#C0392B] transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-sm hover:shadow-md">Partner With Us</a>
+                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu with deep solid background color (enhanced) -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl" style="background-color: #0A2748; background-image: linear-gradient(135deg, #0A2748 0%, #051C33 100%);">
+            <div class="flex flex-col space-y-6 text-left">
+                <span class="text-[10px] uppercase tracking-[0.3em] text-[#B8870A] font-bold border-b border-white/20 pb-3 inline-block w-max">Navigation</span>
+                                <a href="index.html" class="mobile-link text-[#B8870A] text-2xl heading-font transition-all duration-200">Home </a>
+                <a href="story.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Our Story</a>
+
+                <a href="programme.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Programmes & Activities</a>
+                <a href="mission.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Mission</a>
+                <a href="ministries.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Ministries</a>
+                <a href="scholarship.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Scholarship Programmes</a>
+                <a href="partner.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Become a Partner</a>
+                <a href="contact.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Contact Us</a>
+                <div class="pt-6 mt-4 border-t border-white/20">
+                    <a href="partner.html" class="inline-block w-full text-center bg-[#B8870A] text-[#0A2748] font-bold py-3 rounded-full text-sm uppercase tracking-wider hover:bg-[#C0392B] hover:text-white transition">Partner Now</a>
+                </div>
+            </div>
+            <div class="space-y-6 pt-6 border-t border-white/10 mt-8">
+                <div class="flex justify-center gap-6 text-white/60 text-xl">
+                    <a href="#" class="hover:text-[#B8870A] transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-[#B8870A] transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-[#B8870A] transition"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class="text-center text-[10px] text-white/30 tracking-wider font-mono">LHWOF • Est. 1986</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-28 md:py-36 bg-[#1B3A6B] overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/gold-scales.png')]"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
+                <span class="w-2 h-2 bg-[#B8870A] rounded-full"></span>
+                <span class="text-[10px] tracking-[0.2em] text-white/80 font-semibold uppercase">Foundational Identity</span>
+            </div>
+            <h1 class="heading-font text-5xl md:text-7xl text-white leading-[1.2] tracking-tight mb-6">About Us</h1>
+            <p class="text-white/70 text-base md:text-lg max-w-2xl mx-auto font-light">Non-denominational Christian ministry & NGO — raising an altar of praise, transforming lives forever since 1986.</p>
+        </div>
+    </section>
+
+    <!-- Identity Cards: Full Name, HQ, Scripture etc -->
+    <section class="py-16 md:py-20 bg-[#F5F0E8] border-b border-neutral-200">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition">
+                    <i class="fas fa-church text-[#B8870A] text-2xl mb-3"></i>
+                    <h3 class="font-bold text-[#1B3A6B] uppercase text-xs tracking-wider mb-1">Full Name</h3>
+                    <p class="text-neutral-800 font-medium">LivelyHope World Outreach (LHWO)</p>
+                    <p class="text-xs text-neutral-500 mt-1">Foundation Body: LHWOF</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition">
+                    <i class="fas fa-map-marker-alt text-[#B8870A] text-2xl mb-3"></i>
+                    <h3 class="font-bold text-[#1B3A6B] uppercase text-xs tracking-wider mb-1">Headquarters</h3>
+                    <p class="text-neutral-800 font-medium">Port Harcourt, Nigeria</p>
+                    <p class="text-sm text-neutral-600">Branches: Abuja | Community Base: Ubakala, Abia State</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition">
+                    <i class="fas fa-calendar-alt text-[#B8870A] text-2xl mb-3"></i>
+                    <h3 class="font-bold text-[#1B3A6B] uppercase text-xs tracking-wider mb-1">Established</h3>
+                    <p class="text-neutral-800 font-medium">Spiritual origin: 1986</p>
+                    <p class="text-sm text-neutral-600">Incorporated: 15 September 2005</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition">
+                    <i class="fas fa-bible text-[#B8870A] text-2xl mb-3"></i>
+                    <h3 class="font-bold text-[#1B3A6B] uppercase text-xs tracking-wider mb-1">Scripture Anchor</h3>
+                    <p class="text-neutral-800 font-medium heading-font text-lg">1 Peter 1:3</p>
+                    <p class="text-xs text-neutral-500 mt-1">"Living hope through resurrection"</p>
+                </div>
+            </div>
+            <div class="mt-10 text-center bg-white/60 rounded-2xl p-6 backdrop-blur-sm border border-neutral-100">
+                <p class="text-lg heading-font italic text-[#1B3A6B]">"Raising an Altar of Praise, Transforming Lives Forever"</p>
+                <p class="text-xs uppercase tracking-wider text-[#C0392B] font-semibold mt-2">Tagline since 1986</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-2 gap-14 items-center">
+                <div class="order-2 lg:order-1">
+                    <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Spiritual Architects</span>
+                    <h2 class="heading-font text-4xl md:text-5xl text-[#1B3A6B] tracking-tight">Rev. Benson &amp; Rev. Mrs. Patricia Ezem</h2>
+                    <div class="mt-6 space-y-5 text-neutral-700 leading-relaxed">
+                        <p>Founders of LivelyHope World Outreach, Rev. Benson Ezem — a trained architect by profession — and his wife Patricia (married in 1988) have labored for nearly four decades in gospel outreach, discipleship, and community transformation. What began as a personal encounter with Christ in 1986 has grown into a multi-faceted ministry spanning education, healthcare, worship gatherings, and humanitarian missions.</p>
+                        <p>Together they have raised an enduring altar of praise from Ubakala to the nations, establishing programmes like Sweet Fragrance (annual worship gathering since 2004), Divine Living Seminars, and a scholarship scheme that has empowered over 40 graduates. Their leadership exemplifies humility, obedience, and unwavering faith.</p>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2"><i class="fas fa-cross text-[#B8870A]"></i><span class="text-sm">Ordained Ministers</span></div>
+                        <div class="flex items-center gap-2"><i class="fas fa-hand-holding-heart text-[#B8870A]"></i><span class="text-sm">Global Visionaries</span></div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 relative">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://i.pinimg.com/736x/2b/8e/64/2b8e646a8d00ca5f8ec26debd6db34f6.jpg" class="w-full object-cover h-[450px] object-top" alt="Founders Benson and Patricia Ezem">
+                    </div>
+                    <div class="absolute -bottom-5 -right-5 bg-[#F5F0E8] p-4 rounded-xl shadow-lg border border-[#B8870A]/20 max-w-[220px]">
+                        <p class="italic text-xs text-neutral-700">"We are structural vessels — the weight of glory belongs to God alone."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Block -->
+    <section class="py-20 bg-[#1B3A6B] text-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="border-l-4 border-[#B8870A] pl-8">
+                    <i class="fas fa-bullseye text-3xl text-[#B8870A] mb-4 block"></i>
+                    <h3 class="heading-font text-3xl md:text-4xl mb-4">Mission</h3>
+                    <p class="text-white/80 text-lg leading-relaxed">To honour God through worship, discipleship, service, and education — winning souls and empowering individuals and communities spiritually, educationally, and materially.</p>
+                </div>
+                <div class="border-l-4 border-[#B8870A] pl-8">
+                    <i class="fas fa-eye text-3xl text-[#B8870A] mb-4 block"></i>
+                    <h3 class="heading-font text-3xl md:text-4xl mb-4">Vision</h3>
+                    <p class="text-white/80 text-lg leading-relaxed">To raise an enduring altar of praise in Ubakala and beyond, igniting a fire in the hearts of people that spreads across nations, transforming lives and communities until the return of Jesus Christ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Founding Story (Detailed Narrative) -->
+    <section class="py-20 bg-[#F5F0E8]">
+        <div class="max-w-5xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <span class="uppercase tracking-widest text-xs font-bold text-[#C0392B] block mb-2">Genesis of a Movement</span>
+                <h2 class="heading-font text-4xl md:text-5xl text-[#1B3A6B]">The Founding Story</h2>
+                <div class="w-20 h-0.5 bg-[#B8870A] mx-auto mt-4"></div>
+            </div>
+            <div class="space-y-6 text-neutral-700 leading-relaxed text-base md:text-lg font-light">
+                <p>The story of LivelyHope World Outreach begins in <strong class="font-semibold text-[#1B3A6B]">1986</strong>, when a young architect encountered the Lord Jesus Christ through a servant of God in the home of one of his clients. That encounter — unexpected, personal, and decisive — changed the direction of his life entirely.</p>
+                <p>Later that year he met his wife, Patricia, and they married in 1988. From the beginning, theirs was a partnership in life and in purpose. In November 1990, over the course of several spiritual encounters, Rev. Benson Ezem received a clear divine instruction: to walk more closely with God and to take the Gospel beyond the walls of the local church.</p>
+                <p>Following civil unrest in Kano in 1991, the family relocated, eventually settling in Port Harcourt in 1992. With the blessing of church leadership, Rev. Ezem began organising <strong class="font-semibold">Divine Living Seminars</strong> — life-transforming teaching events reaching communities, schools, and individuals across Abia State. By 1996, these efforts had expanded significantly.</p>
+                <p>Then in 2004, a new mandate came: <strong class="font-semibold">raise an altar of praise and worship</strong>. This led to the founding of <strong class="font-semibold">Sweet Fragrance</strong> — a music outreach and worship programme that has run every year since. The ministry was officially registered in Nigeria on <strong class="font-semibold">15 September 2005</strong>. From a single encounter in 1986, it has grown into an organisation impacting lives through the Word, worship, education, and humanitarian service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministry Timeline -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-4xl md:text-5xl text-[#1B3A6B]">Legacy Timeline</h2>
+                <p class="text-neutral-600 max-w-2xl mx-auto mt-3">Four decades of faithful service and Kingdom impact</p>
+            </div>
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-[#B8870A]/30 hidden md:block"></div>
+                <div class="space-y-12">
+                    <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                        <div class="md:w-5/12 text-right md:text-right px-4"><span class="bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold">1986</span><p class="mt-2 font-medium text-[#1B3A6B]">Founder Rev. Benson Ezem encounters Christ. Spiritual journey begins.</p></div>
+                        <div class="hidden md:block w-2 h-2 bg-[#B8870A] rounded-full timeline-dot absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 px-4"></div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                        <div class="md:w-5/12 px-4 order-2 md:order-1"></div>
+                        <div class="hidden md:block w-2 h-2 bg-[#B8870A] rounded-full timeline-dot absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 text-left md:text-left px-4 order-1 md:order-2"><span class="bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold">1990-1996</span><p class="mt-2">Receives divine call to outreach; Divine Living Seminars launched across Abia State.</p></div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                        <div class="md:w-5/12 text-right px-4"><span class="bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold">1998-1999</span><p class="mt-2">Commissioned to plant a church; outreach to Umuahia distributing school supplies & food aid.</p></div>
+                        <div class="hidden md:block w-2 h-2 bg-[#B8870A] rounded-full timeline-dot absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 px-4"></div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                        <div class="md:w-5/12 px-4 order-2 md:order-1"></div>
+                        <div class="hidden md:block w-2 h-2 bg-[#B8870A] rounded-full timeline-dot absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 text-left px-4 order-1 md:order-2"><span class="bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold">2004-2005</span><p class="mt-2">Sweet Fragrance worship programme founded; Scholarship scheme launches. Ministry legally incorporated 15 Sept 2005.</p></div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                        <div class="md:w-5/12 text-right px-4"><span class="bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold">2010-2013</span><p class="mt-2">YWAM partnership formed, LivelyHope Church established; Medical outreach begins across Abia State & Port Harcourt.</p></div>
+                        <div class="hidden md:block w-2 h-2 bg-[#B8870A] rounded-full timeline-dot absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 px-4"></div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                        <div class="md:w-5/12 px-4 order-2 md:order-1"></div>
+                        <div class="hidden md:block w-2 h-2 bg-[#B8870A] rounded-full timeline-dot absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 text-left px-4 order-1 md:order-2"><span class="bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold">2025 & Beyond</span><p class="mt-2">Sweet Fragrance theme 'Godly Wisdom'. Ministry continues exponential impact globally.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="py-20 bg-[#F5F0E8]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B]">Our DNA</span>
+                <h2 class="heading-font text-4xl md:text-5xl text-[#1B3A6B] mt-2">Core Values</h2>
+                <p class="text-neutral-600 max-w-2xl mx-auto mt-3">Principles that guide every programme, outreach, and partnership.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="value-card bg-white p-6 rounded-xl shadow-sm border transition-all duration-300">
+                    <i class="fas fa-cross value-icon text-3xl text-[#B8870A] mb-4"></i>
+                    <h3 class="value-title font-bold text-xl text-[#1B3A6B] mb-2">Faith</h3>
+                    <p class="value-text text-neutral-600 text-sm">Trusting God's guidance in all endeavours — our entire origin is an act of faith.</p>
+                </div>
+                <div class="value-card bg-white p-6 rounded-xl shadow-sm border transition-all duration-300">
+                    <i class="fas fa-hands-helping value-icon text-3xl text-[#B8870A] mb-4"></i>
+                    <h3 class="value-title font-bold text-xl text-[#1B3A6B] mb-2">Service</h3>
+                    <p class="value-text text-neutral-600 text-sm">Demonstrating love through practical, tangible action to the least of these.</p>
+                </div>
+                <div class="value-card bg-white p-6 rounded-xl shadow-sm border transition-all duration-300">
+                    <i class="fas fa-book-open value-icon text-3xl text-[#B8870A] mb-4"></i>
+                    <h3 class="value-title font-bold text-xl text-[#1B3A6B] mb-2">Obedience</h3>
+                    <p class="value-text text-neutral-600 text-sm">Aligning every activity with God’s instruction — the founding began with obedience.</p>
+                </div>
+                <div class="value-card bg-white p-6 rounded-xl shadow-sm border transition-all duration-300">
+                    <i class="fas fa-dove value-icon text-3xl text-[#B8870A] mb-4"></i>
+                    <h3 class="value-title font-bold text-xl text-[#1B3A6B] mb-2">Humility</h3>
+                    <p class="value-text text-neutral-600 text-sm">Growing steadily without seeking personal glory, giving God all honour.</p>
+                </div>
+                <div class="value-card bg-white p-6 rounded-xl shadow-sm border transition-all duration-300">
+                    <i class="fas fa-graduation-cap value-icon text-3xl text-[#B8870A] mb-4"></i>
+                    <h3 class="value-title font-bold text-xl text-[#1B3A6B] mb-2">Empowerment & Education</h3>
+                    <p class="value-text text-neutral-600 text-sm">Enabling individuals through scholarships, healthcare, and discipleship to reach divine potential.</p>
+                </div>
+                <div class="value-card bg-white p-6 rounded-xl shadow-sm border transition-all duration-300">
+                    <i class="fas fa-fire value-icon text-3xl text-[#B8870A] mb-4"></i>
+                    <h3 class="value-title font-bold text-xl text-[#1B3A6B] mb-2">Winning Souls</h3>
+                    <p class="value-text text-neutral-600 text-sm">Every initiative carries evangelistic purpose, sharing living hope with all.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer identical to homepage style -->
+    <footer class="bg-[#112647] text-white/70 py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3 text-white"><span class="text-2xl">🔥</span><span class="heading-font text-2xl font-bold tracking-tight">LivelyHope</span></div>
+                    <p class="max-w-sm text-sm font-light leading-relaxed text-white/60">"Raising an Altar of Praise, Transforming Lives Forever"</p>
+                    <p class="text-xs tracking-wide text-[#B8870A] font-medium">Port Harcourt • Abuja • Ubakala, Abia State, Nigeria</p>
+                </div>
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4>
+                    <p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p>
+                    <p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries & Altars</a></p>
+                    <p class="text-sm"><a href="scholarship.html" class="hover:text-white transition">Scholarships</a></p>
+                    <p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p>
+                </div>
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Connect Ecosystem</h4>
+                    <div class="flex gap-5 text-2xl text-white/60"><a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a><a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a><a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a></div>
+                </div>
+            </div>
+            <div class="text-center text-[11px] mt-16 pt-8 border-t border-white/5 text-white/40 tracking-wider">© 2026 LivelyHope World Outreach Foundation • Incorporated 15th September 2005</div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const spans = menuBtn.querySelectorAll('span');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            spans[0].classList.toggle('rotate-45'); 
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45'); 
+            spans[2].classList.toggle('-translate-y-2');
+            document.body.classList.toggle('overflow-hidden');
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        // Ensure that background color remains solid on close/open (already inline styles)
+    </script>
+</body>
+</html>

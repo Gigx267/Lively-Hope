@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ministries • LivelyHope World Outreach</title>
+    <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="LOGO.png">
+    <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .body-font {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes subtle-zoom {
+            from { transform: scale(1.02); }
+            to { transform: scale(1.08); }
+        }
+        .animate-zoom {
+            animation: subtle-zoom 25s infinite alternate ease-in-out;
+        }
+        .timeline-dot {
+            box-shadow: 0 0 0 6px rgba(184, 135, 10, 0.15);
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover .timeline-dot {
+            box-shadow: 0 0 0 12px rgba(184, 135, 10, 0.25);
+            background-color: #C0392B;
+        }
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover .timeline-year {
+            background-color: #C0392B;
+            color: white;
+            transform: scale(1.05);
+        }
+        .ministry-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ministry-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(27, 58, 107, 0.25);
+        }
+        .ministry-card:hover .ministry-icon {
+            background-color: #C0392B;
+            color: white;
+        }
+        .ministry-icon {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px]">
+
+    <!-- Navigation (matching homepage) -->
+    <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
+            
+            <div class="flex items-center gap-3">
+                <div class="flex items-center">
+                    <img style="height: 50px; opacity: 0.85;" src="LHWOF_logo_final (1).svg" alt="LHWOF Logo" onerror="this.style.display='none'; document.getElementById('fallback-fire').style.display='block'">
+                    <span id="fallback-fire" class="text-3xl hidden mr-2">🔥</span>
+                </div>
+                <div>
+                    <span class="heading-font text-2xl font-bold tracking-tight text-[#1B3A6B]">LivelyHope</span>
+                    <p class="text-[9px] text-[#4A90D9] font-semibold tracking-[0.25em] uppercase">World Outreach</p>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-wider uppercase text-neutral-600">
+                <a href="index.html" class="hover:text-[#B8870A] transition-colors duration-200">Home</a>
+                <a href="story.html" class="hover:text-[#B8870A] transition-colors duration-200">Our Story</a>
+                <a href="about.html" class="hover:text-[#B8870A] transition-colors duration-200">About Us</a>
+                <a href="programme.html" class="hover:text-[#B8870A] transition-colors duration-200">Programmes</a>
+                <a href="mission.html" class="hover:text-[#B8870A] transition-colors duration-200">Mission</a>
+                <a href="ministries.html" class="hover:text-[#B8870A] transition-colors duration-200 text-[#B8870A]">Ministries</a>
+                <a href="scholarship.html" class="hover:text-[#B8870A] transition-colors duration-200">Scholarships</a>
+                <a href="contact.html" class="hover:text-[#B8870A] transition-colors duration-200">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#1B3A6B] text-white rounded-full hover:bg-[#C0392B] transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-sm hover:shadow-md">
+                    Partner With Us
+                </a>
+                
+                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 bg-[#1B3A6B] z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl">
+            <div class="flex flex-col space-y-5 text-left">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A90D9] font-bold border-b border-white/10 pb-2">Navigation Links</span>
+                <a href="index.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Home</a>
+                <a href="story.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Our Story</a>
+                <a href="about.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">About Us</a>
+                <a href="programme.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Programmes & Activities</a>
+                <a href="mission.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Mission & Vision</a>
+                <a href="ministries.html" class="mobile-link text-[#B8870A] text-2xl heading-font hover:text-[#B8870A] transition-colors">Ministries</a>
+                <a href="scholarship.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Scholarship Programmes</a>
+                <a href="partner.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Become a Partner</a>
+                <a href="contact.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Contact Us</a>
+            </div>
+            
+            <div class="space-y-6 pt-6 border-t border-white/10">
+                <a href="partner.html" class="block w-full text-center px-6 py-3.5 bg-[#C0392B] text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
+                    Partner With Us
+                </a>
+                <p class="text-center text-[10px] text-white/40 tracking-wider font-mono">LHWOF • Est. 1986</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden bg-[#1B3A6B]">
+        <div class="absolute inset-0 z-0">
+            <img src="https://i.pinimg.com/1200x/d6/32/c9/d632c9e22dd3e1a55acb5eba9f7c2e2e.jpg" class="w-full h-full object-cover scale-105 animate-zoom" alt="Worship Atmosphere">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1B3A6B]/95 via-[#1B3A6B]/80 to-[#1B3A6B]/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1B3A6B] via-transparent to-transparent opacity-80"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="h-[1px] w-8 bg-[#B8870A]"></span> 
+                    <span class="uppercase tracking-[0.25em] text-[#B8870A] text-xs font-bold">Our Spiritual Engines</span> 
+                </div>
+
+                <h1 class="heading-font text-5xl md:text-7xl lg:text-8xl text-white leading-[1.12] tracking-tight mb-6">
+                    Ministries <br>
+                    <span class="italic font-light text-neutral-200">&</span> 
+                    <span class="relative inline-block font-semibold">
+                        Timeline
+                        <span class="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-[#B8870A] to-transparent"></span>
+                    </span>
+                </h1>
+
+                <p class="text-base md:text-lg text-white/80 leading-relaxed max-w-xl font-light">
+                    Tracing four decades of faithful service — from a single divine encounter in 1986 to a multi-faceted global outreach touching thousands of lives.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministry Overview Cards -->
+    <section class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Our Spiritual Engines</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Ministry Expressions</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+                <p class="text-neutral-600 max-w-2xl mx-auto mt-4 text-lg font-light">Each ministry arm represents a unique channel through which we fulfil our calling to worship, disciple, serve, and educate.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Sweet Fragrance -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">Sweet Fragrance</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Annual worship gathering — choir competitions, spoken word, drama, and scholarship awards since 2004.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2004</span>
+                </div>
+
+                <!-- Divine Living Seminars -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">Divine Living Seminars</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Life-transforming teaching events across communities, schools, and localities since 1993.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 1993</span>
+                </div>
+
+                <!-- LivelyHope Church -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">LivelyHope Church</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Church ministry arm — headquarters Port Harcourt, branch Abuja. A spiritual home for believers.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2010</span>
+                </div>
+
+                <!-- Thirsty Souls -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">Thirsty Souls</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Women's discipleship and spiritual formation programme — retreats, mentoring, and Bible study.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2007</span>
+                </div>
+
+                <!-- Scholarship Programme -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">Scholarship Programme</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Annual grants for university students across multiple disciplines — 40+ graduates empowered.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2005</span>
+                </div>
+
+                <!-- Medical Outreach -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">Medical Outreach</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Healthcare support across multiple LGAs in Abia State and Port Harcourt since 2013.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2013</span>
+                </div>
+
+                <!-- YWAM Partnership -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">YWAM Partnership</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Discipleship and leadership training with University of the Nations — equipping global leaders.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2010</span>
+                </div>
+
+                <!-- Out of the Mouth of Babes -->
+                <div class="ministry-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 text-center group">
+                    <div class="ministry-icon w-16 h-16 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B]">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-2">Out of the Mouth of Babes</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Children's ministry — annual Easter conference, weekly Bible clubs, Little Blessings initiative.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-[#B8870A] tracking-wider uppercase">Ongoing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministry Timeline Section -->
+    <section class="py-24 md:py-32 bg-white">
+        <div class="max-w-5xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Chronicle of Grace</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Ministry Timeline</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+                <p class="text-neutral-600 max-w-2xl mx-auto mt-4 text-lg font-light">Four decades of faithful service and Kingdom impact — tracing God's faithfulness from 1986 to today.</p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Center Line -->
+                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#B8870A]/30 via-[#B8870A]/20 to-transparent"></div>
+
+                <div class="space-y-8 md:space-y-12">
+                    
+                    <!-- 1986 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">1986</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2 font-medium">Founder Rev. Benson Ezem encounters Christ. Spiritual journey begins.</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- 1988 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">1988</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Marries Patricia Ezem. Partnership in life and ministry formed.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1990 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">1990</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Receives divine call to Gospel outreach.</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- 1991–92 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">1991–92</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Relocates from Kano to Port Harcourt following civil unrest.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1993–96 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">1993–96</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Divine Living Seminars launched across communities and schools in Abia State.</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- 1998 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">1998</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Commissioned to plant a new church. Serves as senior pastor.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1999 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">1999</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Outreach to Umuahia — school supplies, food, and humanitarian support distributed.</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- 2004 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#B8870A] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">2004</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2 font-semibold">Sweet Fragrance worship programme founded. LHWOF formally established.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2005 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#B8870A] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">2005</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2 font-semibold">Scholarship scheme launched. Ministry legally incorporated (15 September 2005).</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- 2007 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">2007</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Thirsty Souls women's discipleship programme established.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2010 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">2010</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">YWAM partnership formed. LivelyHope Church established.</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- 2013 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#B8870A] rounded-full timeline-dot z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-[#1B3A6B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">2013</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2">Medical outreach programme begins across Abia State and Port Harcourt.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2025 & Beyond -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-12 md:pl-0">
+                        <div class="md:w-1/2 md:text-right md:pr-12">
+                            <div class="md:inline-flex items-center gap-2 mb-2">
+                                <span class="timeline-year bg-gradient-to-r from-[#B8870A] to-[#C0392B] text-white px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300">2025 & Beyond</span>
+                            </div>
+                            <p class="text-neutral-700 mt-2 font-semibold">Sweet Fragrance theme: 'Godly Wisdom'. Ministry continues to grow and expand globally.</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#C0392B] rounded-full timeline-dot z-10 shadow-lg shadow-red-500/30"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-[#1B3A6B] text-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <span class="text-4xl md:text-5xl font-bold text-[#B8870A] heading-font">39+</span>
+                    <p class="text-white/60 text-sm mt-2 uppercase tracking-wider font-medium">Years of Ministry</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-bold text-[#B8870A] heading-font">8</span>
+                    <p class="text-white/60 text-sm mt-2 uppercase tracking-wider font-medium">Ministry Expressions</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-bold text-[#B8870A] heading-font">40+</span>
+                    <p class="text-white/60 text-sm mt-2 uppercase tracking-wider font-medium">Graduates Empowered</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-bold text-[#B8870A] heading-font">∞</span>
+                    <p class="text-white/60 text-sm mt-2 uppercase tracking-wider font-medium">Lives Transformed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <span class="uppercase tracking-widest text-xs font-bold text-[#C0392B] block mb-3">Join the Legacy</span>
+            <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Be Part of This Timeline</h2>
+            <p class="mt-6 text-neutral-600 text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">Your partnership adds a new chapter to this unfolding story — enabling the next generation of worship gatherings, scholarship recipients, and transformed communities.</p>
+            
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="partner.html" class="w-full sm:w-auto px-8 py-4 bg-[#C0392B] text-white rounded-full font-semibold tracking-wide text-sm shadow-lg hover:shadow-xl hover:bg-red-700 transition duration-300">
+                    Partner With Us
+                </a>
+                <a href="story.html" class="w-full sm:w-auto px-8 py-4 border border-[#1B3A6B] text-[#1B3A6B] font-semibold tracking-wide text-sm rounded-full hover:bg-[#1B3A6B] hover:text-white transition duration-300">
+                    Read Our Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (matching homepage) -->
+    <footer class="bg-[#112647] text-white/70 py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3 text-white">
+                        <span class="text-2xl">🔥</span>
+                        <span class="heading-font text-2xl font-bold tracking-tight">LivelyHope</span>
+                    </div>
+                    <p class="max-w-sm text-sm font-light leading-relaxed text-white/60">"Raising an Altar of Praise, Transforming Lives Forever"</p>
+                    <p class="text-xs tracking-wide text-[#B8870A] font-medium">Port Harcourt • Abuja • Ubakala, Abia State, Nigeria</p>
+                </div>
+                
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4>
+                    <p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p>
+                    <p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries & Altars</a></p>
+                    <p class="text-sm"><a href="scholarship.html" class="hover:text-white transition">Scholarships</a></p>
+                    <p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p>
+                </div>
+                
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Connect Ecosystem</h4>
+                    <div class="flex gap-5 text-2xl text-white/60">
+                        <a href="#" class="hover:text-white transition" aria-label="Facebook Link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="Instagram Link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="YouTube Link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-[11px] mt-16 pt-8 border-t border-white/5 text-white/40 tracking-wider">
+                © 2026 LivelyHope World Outreach Foundation • Incorporated 15th September 2005
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const spans = menuBtn.querySelectorAll('span');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+            
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+</html>

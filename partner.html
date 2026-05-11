@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Partner With Us • LivelyHope World Outreach</title>
+    <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="LOGO.png">
+    <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .body-font {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes subtle-zoom {
+            from { transform: scale(1.02); }
+            to { transform: scale(1.08); }
+        }
+        .animate-zoom {
+            animation: subtle-zoom 25s infinite alternate ease-in-out;
+        }
+        .partner-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .partner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(27, 58, 107, 0.25);
+        }
+        .partner-card:hover .partner-icon {
+            background-color: #C0392B;
+            color: white;
+            transform: scale(1.1);
+        }
+        .partner-icon {
+            transition: all 0.4s ease;
+        }
+        .impact-stat {
+            transition: all 0.3s ease;
+        }
+        .impact-stat:hover {
+            transform: translateY(-4px);
+        }
+        .impact-stat:hover .impact-number {
+            color: #C0392B;
+        }
+        .impact-number {
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px]">
+
+    <!-- Navigation (matching homepage) -->
+    <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
+            
+            <div class="flex items-center gap-3">
+                <div class="flex items-center">
+                    <img style="height: 50px; opacity: 0.85;" src="LHWOF_logo_final (1).svg" alt="LHWOF Logo" onerror="this.style.display='none'; document.getElementById('fallback-fire').style.display='block'">
+                    <span id="fallback-fire" class="text-3xl hidden mr-2">🔥</span>
+                </div>
+                <div>
+                    <span class="heading-font text-2xl font-bold tracking-tight text-[#1B3A6B]">LivelyHope</span>
+                    <p class="text-[9px] text-[#4A90D9] font-semibold tracking-[0.25em] uppercase">World Outreach</p>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-wider uppercase text-neutral-600">
+                <a href="index.html" class="hover:text-[#B8870A] transition-colors duration-200">Home</a>
+                <a href="story.html" class="hover:text-[#B8870A] transition-colors duration-200">Our Story</a>
+                <a href="about.html" class="hover:text-[#B8870A] transition-colors duration-200">About Us</a>
+                <a href="programme.html" class="hover:text-[#B8870A] transition-colors duration-200">Programmes</a>
+                <a href="mission.html" class="hover:text-[#B8870A] transition-colors duration-200">Mission</a>
+                <a href="ministries.html" class="hover:text-[#B8870A] transition-colors duration-200">Ministries</a>
+                <a href="scholarship.html" class="hover:text-[#B8870A] transition-colors duration-200">Scholarships</a>
+                <a href="contact.html" class="hover:text-[#B8870A] transition-colors duration-200">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#C0392B] text-white rounded-full transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-md">
+                    Partner With Us
+                </a>
+                
+                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 bg-[#1B3A6B] z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl">
+            <div class="flex flex-col space-y-5 text-left">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A90D9] font-bold border-b border-white/10 pb-2">Navigation Links</span>
+                <a href="index.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Home</a>
+                <a href="story.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Our Story</a>
+                <a href="about.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">About Us</a>
+                <a href="programme.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Programmes & Activities</a>
+                <a href="mission.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Mission & Vision</a>
+                <a href="ministries.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Ministries</a>
+                <a href="scholarship.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Scholarship Programmes</a>
+                <a href="partner.html" class="mobile-link text-[#B8870A] text-2xl heading-font hover:text-[#B8870A] transition-colors">Become a Partner</a>
+                <a href="contact.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Contact Us</a>
+            </div>
+            
+            <div class="space-y-6 pt-6 border-t border-white/10">
+                <a href="partner.html" class="block w-full text-center px-6 py-3.5 bg-[#C0392B] text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
+                    Partner With Us
+                </a>
+                <p class="text-center text-[10px] text-white/40 tracking-wider font-mono">LHWOF • Est. 1986</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] min-h-[600px] flex items-center overflow-hidden bg-[#1B3A6B]">
+        <div class="absolute inset-0 z-0">
+            <img src="https://i.pinimg.com/1200x/d6/32/c9/d632c9e22dd3e1a55acb5eba9f7c2e2e.jpg" class="w-full h-full object-cover scale-105 animate-zoom" alt="Community Impact">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1B3A6B]/95 via-[#1B3A6B]/80 to-[#1B3A6B]/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1B3A6B] via-transparent to-transparent opacity-80"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="h-[1px] w-8 bg-[#B8870A]"></span> 
+                    <span class="uppercase tracking-[0.25em] text-[#B8870A] text-xs font-bold">Join the Movement</span> 
+                </div>
+
+                <h1 class="heading-font text-5xl md:text-7xl lg:text-8xl text-white leading-[1.12] tracking-tight mb-6">
+                    Partner <br>
+                    <span class="relative inline-block font-semibold">
+                        With Us
+                        <span class="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-[#B8870A] to-transparent"></span>
+                    </span>
+                </h1>
+
+                <p class="text-base md:text-lg text-white/80 leading-relaxed max-w-xl font-light">
+                    Your partnership fuels worship altars, empowers scholars, delivers healthcare, and transforms communities — join us in raising an enduring legacy that echoes into eternity.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 mt-8">
+                    <a href="#ways-to-give" class="group relative px-8 py-4 bg-[#C0392B] text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02] shadow-xl shadow-red-950/20 text-center text-sm font-semibold tracking-wide">
+                        <span class="relative z-10">Ways to Give</span>
+                    </a>
+                    <a href="#contact-form" class="px-8 py-4 border border-white/30 text-white rounded-full text-sm font-semibold tracking-wide hover:bg-white/10 transition duration-300">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Partner Section -->
+    <section class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Your Impact</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Why Partner With Us?</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+                <p class="text-neutral-600 max-w-3xl mx-auto mt-4 text-lg font-light">When you partner with LivelyHope World Outreach, you're not just giving — you're investing in a proven, Spirit-led movement that has transformed lives for nearly four decades.</p>
+            </div>
+
+            <!-- Impact Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div class="impact-stat bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+                    <span class="impact-number text-4xl md:text-5xl font-bold text-[#1B3A6B] heading-font block">39+</span>
+                    <p class="text-sm text-neutral-500 mt-2 uppercase tracking-wider font-semibold">Years of Impact</p>
+                </div>
+                <div class="impact-stat bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+                    <span class="impact-number text-4xl md:text-5xl font-bold text-[#1B3A6B] heading-font block">10</span>
+                    <p class="text-sm text-neutral-500 mt-2 uppercase tracking-wider font-semibold">Programme Areas</p>
+                </div>
+                <div class="impact-stat bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+                    <span class="impact-number text-4xl md:text-5xl font-bold text-[#1B3A6B] heading-font block">40+</span>
+                    <p class="text-sm text-neutral-500 mt-2 uppercase tracking-wider font-semibold">Graduates Empowered</p>
+                </div>
+                <div class="impact-stat bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+                    <span class="impact-number text-4xl md:text-5xl font-bold text-[#1B3A6B] heading-font block">∞</span>
+                    <p class="text-sm text-neutral-500 mt-2 uppercase tracking-wider font-semibold">Eternal Impact</p>
+                </div>
+            </div>
+
+            <!-- Partnership Values -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+                    <div class="w-14 h-14 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-xl text-[#1B3A6B]">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-3">Proven Integrity</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Incorporated since 2005 with transparent governance, a dedicated board, and decades of faithful stewardship. Your giving is handled with accountability and honour.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+                    <div class="w-14 h-14 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-xl text-[#1B3A6B]">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-3">Direct Impact</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Every contribution goes directly toward programmes — scholarships, medical outreaches, worship gatherings, and community support. You see the results in transformed lives.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+                    <div class="w-14 h-14 bg-[#F5F0E8] rounded-2xl flex items-center justify-center mx-auto mb-5 text-xl text-[#1B3A6B]">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-3">Global Reach</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">From Ubakala to the UK, our impact spans continents. Alumni working internationally multiply the effect of every scholarship, every outreach, every prayer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ways to Give Section -->
+    <section id="ways-to-give" class="py-24 md:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Partnership Options</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Ways to Give</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+                <p class="text-neutral-600 max-w-2xl mx-auto mt-4 text-lg font-light">Choose the partnership path that aligns with your heart — every gift, regardless of size, contributes to eternal impact.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- One-Time Gift -->
+                <div class="partner-card bg-[#F5F0E8] p-8 rounded-2xl border border-neutral-200 text-center group">
+                    <div class="partner-icon w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B] shadow-sm">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-3">One-Time Gift</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed mb-4">Make a single contribution toward any programme — scholarship fund, medical outreach, Sweet Fragrance, or general ministry.</p>
+                    <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Any Amount Welcome</span>
+                </div>
+
+                <!-- Monthly Partnership -->
+                <div class="partner-card bg-gradient-to-br from-[#1B3A6B] to-[#0A2748] p-8 rounded-2xl border border-[#B8870A]/20 text-center group text-white">
+                    <div class="partner-icon w-16 h-16 bg-[#B8870A]/20 rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#B8870A] shadow-sm">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white heading-font mb-3">Monthly Partnership</h3>
+                    <p class="text-white/70 text-sm leading-relaxed mb-4">Become a recurring partner — your monthly support provides sustainable funding for ongoing programmes and future planning.</p>
+                    <span class="inline-block px-4 py-1.5 bg-[#B8870A] text-white text-xs font-bold rounded-full tracking-wider uppercase">Most Impactful</span>
+                </div>
+
+                <!-- Sponsor a Student -->
+                <div class="partner-card bg-[#F5F0E8] p-8 rounded-2xl border border-neutral-200 text-center group">
+                    <div class="partner-icon w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B] shadow-sm">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-3">Sponsor a Student</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed mb-4">Fund a named scholarship — President's (₦100k), Hope (₦50k), or Discretionary (₦30k) — and walk with a student through graduation.</p>
+                    <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Name a Scholarship</span>
+                </div>
+
+                <!-- Legacy Giving -->
+                <div class="partner-card bg-[#F5F0E8] p-8 rounded-2xl border border-neutral-200 text-center group">
+                    <div class="partner-icon w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl text-[#1B3A6B] shadow-sm">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-[#1B3A6B] heading-font mb-3">Legacy Giving</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed mb-4">Include LivelyHope in your estate planning or establish an endowment — leave a legacy that continues transforming lives for generations.</p>
+                    <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Eternal Legacy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Your Giving Supports -->
+    <section class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-6xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Tangible Impact</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">What Your Giving Supports</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-7 rounded-2xl shadow-sm border border-neutral-100 flex items-start gap-4">
+                    <div class="w-12 h-12 bg-[#F5F0E8] rounded-xl flex items-center justify-center flex-shrink-0 text-lg text-[#1B3A6B]">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#1B3A6B] heading-font mb-1">Sweet Fragrance</h4>
+                        <p class="text-neutral-600 text-sm">Annual worship gathering — choir, drama, spoken word, and awards.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-7 rounded-2xl shadow-sm border border-neutral-100 flex items-start gap-4">
+                    <div class="w-12 h-12 bg-[#F5F0E8] rounded-xl flex items-center justify-center flex-shrink-0 text-lg text-[#1B3A6B]">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#1B3A6B] heading-font mb-1">Scholarship Programme</h4>
+                        <p class="text-neutral-600 text-sm">40+ graduates empowered across medicine, law, engineering & more.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-7 rounded-2xl shadow-sm border border-neutral-100 flex items-start gap-4">
+                    <div class="w-12 h-12 bg-[#F5F0E8] rounded-xl flex items-center justify-center flex-shrink-0 text-lg text-[#1B3A6B]">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#1B3A6B] heading-font mb-1">Medical Outreach</h4>
+                        <p class="text-neutral-600 text-sm">Free healthcare across Abia State and Port Harcourt communities.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-7 rounded-2xl shadow-sm border border-neutral-100 flex items-start gap-4">
+                    <div class="w-12 h-12 bg-[#F5F0E8] rounded-xl flex items-center justify-center flex-shrink-0 text-lg text-[#1B3A6B]">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#1B3A6B] heading-font mb-1">Divine Living Seminars</h4>
+                        <p class="text-neutral-600 text-sm">Life-transforming teaching in communities and schools since 1993.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-7 rounded-2xl shadow-sm border border-neutral-100 flex items-start gap-4">
+                    <div class="w-12 h-12 bg-[#F5F0E8] rounded-xl flex items-center justify-center flex-shrink-0 text-lg text-[#1B3A6B]">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#1B3A6B] heading-font mb-1">Thirsty Souls</h4>
+                        <p class="text-neutral-600 text-sm">Women's discipleship — retreats, mentoring, and spiritual formation.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-7 rounded-2xl shadow-sm border border-neutral-100 flex items-start gap-4">
+                    <div class="w-12 h-12 bg-[#F5F0E8] rounded-xl flex items-center justify-center flex-shrink-0 text-lg text-[#1B3A6B]">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#1B3A6B] heading-font mb-1">Love Basket</h4>
+                        <p class="text-neutral-600 text-sm">Food and humanitarian support for the less privileged and crisis victims.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Get Started Form -->
+    <section id="contact-form" class="py-24 md:py-32 bg-white">
+        <div class="max-w-3xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Get Started</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Begin Your Partnership Journey</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+                <p class="text-neutral-600 max-w-2xl mx-auto mt-4 text-lg font-light">Fill out the form below and a member of our partnership team will connect with you to discuss how you can make the greatest impact.</p>
+            </div>
+
+            <!-- Partnership Form -->
+            <div class="bg-[#F5F0E8] p-8 md:p-10 rounded-3xl border border-neutral-200 shadow-lg">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-[#1B3A6B] uppercase tracking-wider mb-2">Full Name *</label>
+                            <input type="text" placeholder="Your full name" class="w-full px-5 py-4 bg-white rounded-xl border border-neutral-200 focus:border-[#B8870A] focus:ring-2 focus:ring-[#B8870A]/20 outline-none transition text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-[#1B3A6B] uppercase tracking-wider mb-2">Email Address *</label>
+                            <input type="email" placeholder="your@email.com" class="w-full px-5 py-4 bg-white rounded-xl border border-neutral-200 focus:border-[#B8870A] focus:ring-2 focus:ring-[#B8870A]/20 outline-none transition text-sm">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-[#1B3A6B] uppercase tracking-wider mb-2">Phone Number</label>
+                            <input type="tel" placeholder="+234..." class="w-full px-5 py-4 bg-white rounded-xl border border-neutral-200 focus:border-[#B8870A] focus:ring-2 focus:ring-[#B8870A]/20 outline-none transition text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-[#1B3A6B] uppercase tracking-wider mb-2">Location</label>
+                            <input type="text" placeholder="City, Country" class="w-full px-5 py-4 bg-white rounded-xl border border-neutral-200 focus:border-[#B8870A] focus:ring-2 focus:ring-[#B8870A]/20 outline-none transition text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#1B3A6B] uppercase tracking-wider mb-2">Partnership Interest *</label>
+                        <select class="w-full px-5 py-4 bg-white rounded-xl border border-neutral-200 focus:border-[#B8870A] focus:ring-2 focus:ring-[#B8870A]/20 outline-none transition text-sm text-neutral-600">
+                            <option value="">Select your preferred partnership type</option>
+                            <option value="one-time">One-Time Gift</option>
+                            <option value="monthly">Monthly Partnership</option>
+                            <option value="scholarship">Sponsor a Student / Scholarship</option>
+                            <option value="legacy">Legacy Giving / Endowment</option>
+                            <option value="other">Other / I'd like to discuss</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#1B3A6B] uppercase tracking-wider mb-2">Which programme area interests you most?</label>
+                        <select class="w-full px-5 py-4 bg-white rounded-xl border border-neutral-200 focus:border-[#B8870A] focus:ring-2 focus:ring-[#B8870A]/20 outline-none transition text-sm text-neutral-600">
+                            <option value="">Select a programme</option>
+                            <option value="sweet-fragrance">Sweet Fragrance — Worship & Music</option>
+                            <option value="scholarships">Scholarship Programme</option>
+                            <option value="medical">Medical Outreach</option>
+                            <option value="seminars">Divine Living Seminars</option>
+                            <option value="thirsty-souls">Thirsty Souls — Women's Ministry</option>
+                            <option value="love-basket">Love Basket — Humanitarian Support</option>
+                            <option value="general">General Ministry Support</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#1B3A6B] uppercase tracking-wider mb-2">Message (Optional)</label>
+                        <textarea rows="4" placeholder="Tell us about your heart for partnership or any questions you have..." class="w-full px-5 py-4 bg-white rounded-xl border border-neutral-200 focus:border-[#B8870A] focus:ring-2 focus:ring-[#B8870A]/20 outline-none transition text-sm resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-8 py-5 bg-[#C0392B] text-white rounded-full font-semibold tracking-wide text-sm shadow-lg hover:shadow-xl hover:bg-red-700 transition duration-300 uppercase">
+                        Submit Partnership Inquiry <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Alternative Contact -->
+            <div class="mt-10 text-center">
+                <p class="text-neutral-500 text-sm">Prefer to speak directly? Contact our partnership team:</p>
+                <div class="flex flex-wrap justify-center gap-6 mt-4">
+                    <a href="mailto:partnerships@livelyhope.org" class="inline-flex items-center gap-2 text-[#1B3A6B] font-medium text-sm hover:text-[#C0392B] transition">
+                        <i class="fas fa-envelope"></i> partnerships@livelyhope.org
+                    </a>
+                    <a href="tel:+2348000000000" class="inline-flex items-center gap-2 text-[#1B3A6B] font-medium text-sm hover:text-[#C0392B] transition">
+                        <i class="fas fa-phone"></i> +234 (0) 800 000 0000
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripture Verse -->
+    <section class="py-20 bg-[#1B3A6B] text-white text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <i class="fas fa-bible text-4xl text-[#B8870A] mb-6"></i>
+            <p class="heading-font text-2xl md:text-4xl italic mb-4 leading-relaxed">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+            <p class="text-[#B8870A] text-sm font-semibold tracking-widest uppercase">2 Corinthians 9:7</p>
+        </div>
+    </section>
+
+    <!-- Footer (matching homepage) -->
+    <footer class="bg-[#112647] text-white/70 py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3 text-white">
+                        <span class="text-2xl">🔥</span>
+                        <span class="heading-font text-2xl font-bold tracking-tight">LivelyHope</span>
+                    </div>
+                    <p class="max-w-sm text-sm font-light leading-relaxed text-white/60">"Raising an Altar of Praise, Transforming Lives Forever"</p>
+                    <p class="text-xs tracking-wide text-[#B8870A] font-medium">Port Harcourt • Abuja • Ubakala, Abia State, Nigeria</p>
+                </div>
+                
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4>
+                    <p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p>
+                    <p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries & Altars</a></p>
+                    <p class="text-sm"><a href="scholarship.html" class="hover:text-white transition">Scholarships</a></p>
+                    <p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p>
+                </div>
+                
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Connect Ecosystem</h4>
+                    <div class="flex gap-5 text-2xl text-white/60">
+                        <a href="#" class="hover:text-white transition" aria-label="Facebook Link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="Instagram Link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="YouTube Link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-[11px] mt-16 pt-8 border-t border-white/5 text-white/40 tracking-wider">
+                © 2026 LivelyHope World Outreach Foundation • Incorporated 15th September 2005
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const spans = menuBtn.querySelectorAll('span');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+            
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Simple form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your partnership inquiry! Our team will connect with you shortly.');
+        });
+    </script>
+</body>
+</html>

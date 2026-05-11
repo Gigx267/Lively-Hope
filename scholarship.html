@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Scholarships • LivelyHope World Outreach</title>
+    <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="LOGO.png">
+    <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .body-font {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes subtle-zoom {
+            from { transform: scale(1.02); }
+            to { transform: scale(1.08); }
+        }
+        .animate-zoom {
+            animation: subtle-zoom 25s infinite alternate ease-in-out;
+        }
+        .scholarship-table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.7rem;
+        }
+        .scholarship-table td, .scholarship-table th {
+            padding: 18px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .scholarship-table tbody tr {
+            transition: all 0.3s ease;
+        }
+        .scholarship-table tbody tr:hover {
+            background-color: #F5F0E8;
+            transform: scale(1.005);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .scholarship-table tr:last-child td {
+            border-bottom: none;
+        }
+        .testimonial-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(27, 58, 107, 0.25);
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(27, 58, 107, 0.2);
+        }
+        .stat-card:hover .stat-number {
+            transform: scale(1.1);
+            color: #C0392B;
+        }
+        .stat-number {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px]">
+
+    <!-- Navigation (matching homepage) -->
+    <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
+            
+            <div class="flex items-center gap-3">
+                <div class="flex items-center">
+                    <img style="height: 50px; opacity: 0.85;" src="LHWOF_logo_final (1).svg" alt="LHWOF Logo" onerror="this.style.display='none'; document.getElementById('fallback-fire').style.display='block'">
+                    <span id="fallback-fire" class="text-3xl hidden mr-2">🔥</span>
+                </div>
+                <div>
+                    <span class="heading-font text-2xl font-bold tracking-tight text-[#1B3A6B]">LivelyHope</span>
+                    <p class="text-[9px] text-[#4A90D9] font-semibold tracking-[0.25em] uppercase">World Outreach</p>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-wider uppercase text-neutral-600">
+                <a href="index.html" class="hover:text-[#B8870A] transition-colors duration-200">Home</a>
+                <a href="story.html" class="hover:text-[#B8870A] transition-colors duration-200">Our Story</a>
+                <a href="about.html" class="hover:text-[#B8870A] transition-colors duration-200">About Us</a>
+                <a href="programme.html" class="hover:text-[#B8870A] transition-colors duration-200">Programmes</a>
+                <a href="mission.html" class="hover:text-[#B8870A] transition-colors duration-200">Mission</a>
+                <a href="ministries.html" class="hover:text-[#B8870A] transition-colors duration-200">Ministries</a>
+                <a href="scholarship.html" class="hover:text-[#B8870A] transition-colors duration-200 text-[#B8870A]">Scholarships</a>
+                <a href="contact.html" class="hover:text-[#B8870A] transition-colors duration-200">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#1B3A6B] text-white rounded-full hover:bg-[#C0392B] transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-sm hover:shadow-md">
+                    Partner With Us
+                </a>
+                
+                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 bg-[#1B3A6B] z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl">
+            <div class="flex flex-col space-y-5 text-left">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A90D9] font-bold border-b border-white/10 pb-2">Navigation Links</span>
+                <a href="index.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Home</a>
+                <a href="story.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Our Story</a>
+                <a href="about.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">About Us</a>
+                <a href="programme.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Programmes & Activities</a>
+                <a href="mission.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Mission & Vision</a>
+                <a href="ministries.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Ministries</a>
+                <a href="scholarship.html" class="mobile-link text-[#B8870A] text-2xl heading-font hover:text-[#B8870A] transition-colors">Scholarship Programmes</a>
+                <a href="partner.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Become a Partner</a>
+                <a href="contact.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Contact Us</a>
+            </div>
+            
+            <div class="space-y-6 pt-6 border-t border-white/10">
+                <a href="partner.html" class="block w-full text-center px-6 py-3.5 bg-[#C0392B] text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
+                    Partner With Us
+                </a>
+                <p class="text-center text-[10px] text-white/40 tracking-wider font-mono">LHWOF • Est. 1986</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden bg-[#1B3A6B]">
+        <div class="absolute inset-0 z-0">
+            <img src="https://i.pinimg.com/1200x/d6/32/c9/d632c9e22dd3e1a55acb5eba9f7c2e2e.jpg" class="w-full h-full object-cover scale-105 animate-zoom" alt="Graduation Celebration">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1B3A6B]/95 via-[#1B3A6B]/80 to-[#1B3A6B]/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1B3A6B] via-transparent to-transparent opacity-80"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="h-[1px] w-8 bg-[#B8870A]"></span> 
+                    <span class="uppercase tracking-[0.25em] text-[#B8870A] text-xs font-bold">Empowering Futures Since 2005</span> 
+                </div>
+
+                <h1 class="heading-font text-5xl md:text-7xl lg:text-8xl text-white leading-[1.12] tracking-tight mb-6">
+                    Scholarship <br>
+                    <span class="relative inline-block font-semibold">
+                        Programme
+                        <span class="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-[#B8870A] to-transparent"></span>
+                    </span>
+                </h1>
+
+                <p class="text-base md:text-lg text-white/80 leading-relaxed max-w-xl font-light">
+                    Investing in tomorrow's leaders — 40+ graduates empowered across medicine, law, engineering, and more. Many now thriving internationally.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview & Impact Section -->
+    <section class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Overview Content -->
+                <div class="lg:col-span-7">
+                    <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Divine Mandate for Education</span>
+                    <h2 class="heading-font text-4xl md:text-5xl lg:text-6xl leading-tight text-[#1B3A6B] tracking-tight">
+                        Raising Professionals <br><span class="italic font-light">Through Kingdom Investment</span>
+                    </h2>
+                    
+                    <div class="mt-8 space-y-5 text-neutral-700 leading-relaxed">
+                        <p>Launched in <strong>2005</strong> following a divine prompting, the scholarship scheme has supported over <strong class="text-[#C0392B]">40 graduates</strong> across medicine, law, engineering, healthcare, finance, and more.</p>
+                        <p>Many beneficiaries are now thriving professionals — <strong>doctors running clinics, engineers working internationally, professionals across the UK and Nigeria</strong> — each a living testament to the transformative power of Kingdom investment in education.</p>
+                        <p>A dedicated scholarship board oversees candidate selection through structured assessments. Awards are granted per academic session and <strong>renewed until graduation</strong>, ensuring sustained support throughout each student's academic journey.</p>
+                    </div>
+
+                    <!-- Key Stats -->
+                    <div class="grid grid-cols-3 gap-4 mt-10">
+                        <div class="stat-card bg-white p-5 rounded-xl shadow-sm border border-neutral-100 text-center">
+                            <span class="stat-number text-3xl font-bold text-[#1B3A6B] heading-font block">40+</span>
+                            <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Graduates</p>
+                        </div>
+                        <div class="stat-card bg-white p-5 rounded-xl shadow-sm border border-neutral-100 text-center">
+                            <span class="stat-number text-3xl font-bold text-[#1B3A6B] heading-font block">7</span>
+                            <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Scholarship Categories</p>
+                        </div>
+                        <div class="stat-card bg-white p-5 rounded-xl shadow-sm border border-neutral-100 text-center">
+                            <span class="stat-number text-3xl font-bold text-[#1B3A6B] heading-font block">2005</span>
+                            <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Established</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial / Quote Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://i.pinimg.com/736x/2b/8e/64/2b8e646a8d00ca5f8ec26debd6db34f6.jpg" class="w-full object-cover aspect-[4/5]" alt="Scholarship Graduate">
+                    </div>
+                    <div class="absolute -bottom-8 -left-4 md:-left-10 bg-gradient-to-br from-[#1B3A6B] to-[#0A2748] p-6 md:p-8 rounded-xl shadow-2xl max-w-xs z-20 border border-[#B8870A]/20">
+                        <i class="fas fa-quote-right text-3xl text-[#B8870A]/40 mb-3"></i>
+                        <p class="italic text-white/80 text-sm leading-relaxed">"The scholarship didn't just fund my education — it gave me a future. Today I run my own medical practice, and I'm committed to giving back."</p>
+                        <p class="mt-4 text-xs font-semibold uppercase tracking-wider text-[#B8870A]">— Scholarship Alumnus, Medicine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarship Table Section -->
+    <section class="py-24 md:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Award Categories</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Scholarship Structure</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+                <p class="text-neutral-600 max-w-2xl mx-auto mt-4 text-lg font-light">Seven named categories supporting students across critical disciplines — each award renewed annually until graduation.</p>
+            </div>
+
+            <!-- Scholarship Table -->
+            <div class="bg-white rounded-3xl shadow-xl border border-neutral-100 overflow-hidden">
+                <!-- Table Header -->
+                <div class="bg-gradient-to-r from-[#1B3A6B] to-[#0A2748] px-8 py-6 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-[#B8870A]/20 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-[#B8870A] text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white heading-font text-xl">Award Categories & Disciplines</h3>
+                        <p class="text-white/50 text-xs">All awards granted per academic session and renewable until graduation</p>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="overflow-x-auto">
+                    <table class="scholarship-table w-full">
+                        <thead>
+                            <tr class="bg-[#F5F0E8]">
+                                <th class="text-left text-[#1B3A6B] rounded-tl-2xl">Scholarship Name</th>
+                                <th class="text-left text-[#1B3A6B]">Discipline</th>
+                                <th class="text-right text-[#1B3A6B] rounded-tr-2xl">Award (₦/session)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold text-[#1B3A6B]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#B8870A] rounded-full"></div>
+                                        <div>
+                                            <span class="block">President's Scholarship</span>
+                                            <span class="text-[10px] text-neutral-400 font-normal">Highest honour — flagship award</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                        <i class="fas fa-stethoscope text-[#B8870A] text-xs"></i> Medicine
+                                    </span>
+                                </td>
+                                <td class="text-right font-bold text-[#C0392B] text-lg">₦100,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-[#1B3A6B]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#B8870A] rounded-full"></div>
+                                        <span>Vice President's Scholarship</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                        <i class="fas fa-drafting-compass text-[#B8870A] text-xs"></i> Architecture
+                                    </span>
+                                </td>
+                                <td class="text-right font-bold text-[#1B3A6B] text-lg">₦50,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-[#1B3A6B]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#B8870A] rounded-full"></div>
+                                        <div>
+                                            <span class="block">Chief J.B.O Ezem Memorial Scholarship</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                        <i class="fas fa-calculator text-[#B8870A] text-xs"></i> Accountancy
+                                    </span>
+                                </td>
+                                <td class="text-right font-bold text-[#1B3A6B] text-lg">₦50,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-[#1B3A6B]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#B8870A] rounded-full"></div>
+                                        <div>
+                                            <span class="block">Sir Jonathan Ukejianya Memorial Scholarship</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                        <i class="fas fa-prescription-bottle text-[#B8870A] text-xs"></i> Pharmacy
+                                    </span>
+                                </td>
+                                <td class="text-right font-bold text-[#1B3A6B] text-lg">₦50,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-[#1B3A6B]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#B8870A] rounded-full"></div>
+                                        <div>
+                                            <span class="block">Mrs Christy A. Ukejianya Memorial Scholarship</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                        <i class="fas fa-heartbeat text-[#B8870A] text-xs"></i> Nursing
+                                    </span>
+                                </td>
+                                <td class="text-right font-bold text-[#1B3A6B] text-lg">₦50,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-[#1B3A6B]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#B8870A] rounded-full"></div>
+                                        <span>Hope Scholarship</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                            <i class="fas fa-cog text-[#B8870A] text-xs"></i> Engineering
+                                        </span>
+                                        <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                            <i class="fas fa-balance-scale text-[#B8870A] text-xs"></i> Law
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="text-right font-bold text-[#1B3A6B] text-lg">₦50,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-[#1B3A6B]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-[#B8870A] rounded-full"></div>
+                                        <div>
+                                            <span class="block">Discretionary Scholarship</span>
+                                            <span class="text-[10px] text-neutral-400 font-normal">Other approved courses</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="inline-flex items-center gap-1.5 bg-[#F5F0E8] px-3 py-1 rounded-full text-xs font-medium text-[#1B3A6B]">
+                                        <i class="fas fa-book-open text-[#B8870A] text-xs"></i> Other courses
+                                    </span>
+                                </td>
+                                <td class="text-right font-bold text-[#1B3A6B] text-lg">₦30,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Selection Process -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6">
+                <div class="bg-[#F5F0E8] p-7 rounded-2xl border border-neutral-200">
+                    <div class="w-10 h-10 bg-[#1B3A6B]/10 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-[#1B3A6B] font-bold text-sm">1</span>
+                    </div>
+                    <h4 class="font-bold text-[#1B3A6B] heading-font text-lg mb-2">Application</h4>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Students submit applications through the scholarship board with academic records and supporting documents.</p>
+                </div>
+                <div class="bg-[#F5F0E8] p-7 rounded-2xl border border-neutral-200">
+                    <div class="w-10 h-10 bg-[#1B3A6B]/10 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-[#1B3A6B] font-bold text-sm">2</span>
+                    </div>
+                    <h4 class="font-bold text-[#1B3A6B] heading-font text-lg mb-2">Assessment</h4>
+                    <p class="text-neutral-600 text-sm leading-relaxed">A dedicated scholarship board evaluates candidates through structured assessments and interviews.</p>
+                </div>
+                <div class="bg-[#F5F0E8] p-7 rounded-2xl border border-neutral-200">
+                    <div class="w-10 h-10 bg-[#1B3A6B]/10 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-[#1B3A6B] font-bold text-sm">3</span>
+                    </div>
+                    <h4 class="font-bold text-[#1B3A6B] heading-font text-lg mb-2">Renewal</h4>
+                    <p class="text-neutral-600 text-sm leading-relaxed">Awards are granted per academic session and renewed until graduation based on continued performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Impact Section -->
+    <section class="py-24 md:py-32 bg-[#1B3A6B] text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-[#B8870A] rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#C0392B] rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#B8870A] mb-3 block">Content Opportunity</span>
+                <h2 class="heading-font text-4xl md:text-6xl text-white tracking-tight">Alumni Impact Stories</h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-[#B8870A] to-transparent mx-auto mt-5"></div>
+                <p class="text-white/60 max-w-3xl mx-auto mt-4 text-lg font-light">40+ scholarship alumni represent one of our most powerful storytelling assets — testimonies that resonate with diaspora donors and supporters worldwide.</p>
+            </div>
+
+            <!-- Alumni Testimonials -->
+            
+
+            <!-- Diaspora Connection -->
+            <div class="mt-16 text-center bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10">
+                <i class="fas fa-globe-africa text-4xl text-[#B8870A] mb-4"></i>
+                <h3 class="heading-font text-2xl md:text-3xl text-white mb-3">Diaspora Connection</h3>
+                <p class="text-white/60 max-w-2xl mx-auto leading-relaxed">Alumni working internationally — particularly in the UK, North America, and across Africa — represent a powerful bridge to diaspora supporters. Their stories of transformation, from local communities to global professionals, inspire giving and demonstrate the tangible impact of every scholarship awarded.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <span class="uppercase tracking-widest text-xs font-bold text-[#C0392B] block mb-3">Sponsor a Future Leader</span>
+            <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Help Us Empower More Graduates</h2>
+            <p class="mt-6 text-neutral-600 text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">Your contribution — whether a one-time gift toward a named scholarship or recurring support — directly funds the next doctor, engineer, or lawyer emerging from our communities.</p>
+            
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="partner.html" class="w-full sm:w-auto px-8 py-4 bg-[#C0392B] text-white rounded-full font-semibold tracking-wide text-sm shadow-lg hover:shadow-xl hover:bg-red-700 transition duration-300">
+                    Fund a Scholarship
+                </a>
+                <a href="contact.html" class="w-full sm:w-auto px-8 py-4 border border-[#1B3A6B] text-[#1B3A6B] font-semibold tracking-wide text-sm rounded-full hover:bg-[#1B3A6B] hover:text-white transition duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (matching homepage) -->
+    <footer class="bg-[#112647] text-white/70 py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3 text-white">
+                        <span class="text-2xl">🔥</span>
+                        <span class="heading-font text-2xl font-bold tracking-tight">LivelyHope</span>
+                    </div>
+                    <p class="max-w-sm text-sm font-light leading-relaxed text-white/60">"Raising an Altar of Praise, Transforming Lives Forever"</p>
+                    <p class="text-xs tracking-wide text-[#B8870A] font-medium">Port Harcourt • Abuja • Ubakala, Abia State, Nigeria</p>
+                </div>
+                
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4>
+                    <p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p>
+                    <p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries & Altars</a></p>
+                    <p class="text-sm"><a href="scholarship.html" class="hover:text-white transition">Scholarships</a></p>
+                    <p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p>
+                </div>
+                
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Connect Ecosystem</h4>
+                    <div class="flex gap-5 text-2xl text-white/60">
+                        <a href="#" class="hover:text-white transition" aria-label="Facebook Link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="Instagram Link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="YouTube Link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-[11px] mt-16 pt-8 border-t border-white/5 text-white/40 tracking-wider">
+                © 2026 LivelyHope World Outreach Foundation • Incorporated 15th September 2005
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const spans = menuBtn.querySelectorAll('span');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+            
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+</html>

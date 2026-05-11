@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LivelyHope World Outreach</title>
+     <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="LOGO.png">
+
+<link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .body-font {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes subtle-zoom {
+            from { transform: scale(1.02); }
+            to { transform: scale(1.08); }
+        }
+        .animate-zoom {
+            animation: subtle-zoom 25s infinite alternate ease-in-out;
+        }
+    </style>
+</head>
+<body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px]">
+
+    <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
+            
+            <div class="flex items-center gap-3">
+                <div class="flex items-center">
+                    <img style="height: 50px; opacity: 0.85;" src="LHWOF_logo_final (1).svg" alt="LHWOF Logo" onerror="this.style.display='none'; document.getElementById('fallback-fire').style.display='block'">
+                    <span id="fallback-fire" class="text-3xl hidden mr-2">🔥</span>
+                </div>
+                <div>
+                    <span class="heading-font text-2xl font-bold tracking-tight text-[#1B3A6B]">LivelyHope</span>
+                    <p class="text-[9px] text-[#4A90D9] font-semibold tracking-[0.25em] uppercase">World Outreach</p>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-wider uppercase text-neutral-600">
+                <a href="story.html" class="hover:text-[#B8870A] transition-colors duration-200">Our Story</a>
+                <a href="about.html" class="hover:text-[#B8870A] transition-colors duration-200">About Us</a>
+                <a href="programme.html" class="hover:text-[#B8870A] transition-colors duration-200">Programmes</a>
+                <a href="mission.html" class="hover:text-[#B8870A] transition-colors duration-200">Mission</a>
+                <a href="ministries.html" class="hover:text-[#B8870A] transition-colors duration-200">Ministries</a>
+                <a href="scholarship.html" class="hover:text-[#B8870A] transition-colors duration-200">Scholarships</a>
+               
+                <a href="contact.html" class="hover:text-[#B8870A] transition-colors duration-200">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#1B3A6B] text-white rounded-full hover:bg-[#C0392B] transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-sm hover:shadow-md">
+                    Partner With Us
+                </a>
+                
+                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 bg-[#1B3A6B] z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl">
+            <div class="flex flex-col space-y-5 text-left">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A90D9] font-bold border-b border-white/10 pb-2">Navigation Links</span>
+                <a href="story.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Our Story</a>
+                <a href="about.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">About Us</a>
+                <a href="programme.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Programmes & Activities</a>
+                <a href="mission.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Mission</a>
+                <a href="ministries.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Ministries</a>
+                <a href="scholarship.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Scholarship Programmes</a>
+                <a href="partner.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Become a Partner</a>
+                <a href="contact.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Contact Us</a>
+            </div>
+            
+            <div class="space-y-6 pt-6 border-t border-white/10">
+                <a href="partner.html" class="block w-full text-center px-6 py-3.5 bg-[#C0392B] text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
+                    Partner With Us
+                </a>
+                <p class="text-center text-[10px] text-white/40 tracking-wider font-mono">LHWOF • Est. 1986</p>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-[calc(100vh-83px)] min-h-[650px] flex items-center overflow-hidden bg-[#1B3A6B]">
+        <div class="absolute inset-0 z-0">
+            <img src="https://i.pinimg.com/1200x/d6/32/c9/d632c9e22dd3e1a55acb5eba9f7c2e2e.jpg" class="w-full h-full object-cover scale-105 animate-zoom" alt="Worship Atmosphere">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1B3A6B]/95 via-[#1B3A6B]/75 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1B3A6B] via-transparent to-transparent opacity-80"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="h-[1px] w-8 bg-[#B8870A]"></span> 
+                    <span class="uppercase tracking-[0.25em] text-[#B8870A] text-xs font-bold">Established 1986</span> 
+                </div>
+
+                <h1 class="heading-font text-5xl md:text-7xl lg:text-8xl text-white leading-[1.12] tracking-tight mb-8">
+                    Transforming <br>
+                    <span class="italic font-light text-neutral-200">Lives</span> 
+                    <span class="relative inline-block font-semibold">
+                        Forever
+                        <span class="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-[#B8870A] to-transparent"></span>
+                    </span>
+                </h1>
+
+                <p class="text-base md:text-lg text-white/80 leading-relaxed max-w-xl mb-12 font-light">
+                    Igniting an enduring fire in hearts from <span class="text-white font-medium">Ubakala</span> to the nations. A non-denominational movement dedicated to spiritual structural renewal and community elevation.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-8">
+                    <a href="partner.html" class="group relative px-10 py-5 bg-[#C0392B] text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02] shadow-xl shadow-red-950/20 text-center text-sm font-semibold tracking-wide">
+                        <span class="relative z-10">Join the Mission</span>
+                    </a>
+                    <div class="flex flex-col border-l border-white/20 pl-6">
+                        <span class="text-[10px] uppercase tracking-widest text-[#4A90D9] font-bold mb-0.5">Scripture Altar</span>
+                        <span class="text-white/90 font-medium heading-font text-lg">1 Peter 1:3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 text-white/30 z-10">
+            <span class="text-[9px] uppercase tracking-[0.3em] font-medium text-[#4A90D9]">Explore Outreach</span>
+            <div class="w-[1px] h-10 bg-gradient-to-b from-white/40 to-transparent"></div>
+        </div>
+    </section>
+
+    <section id="story" class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div class="lg:col-span-7 order-2 lg:order-1">
+                    <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Foundational Narrative</span>
+                    <h2 class="heading-font text-4xl md:text-5xl lg:text-6xl leading-tight text-[#1B3A6B] tracking-tight">
+                        From One Divine Encounter<br><span class="italic font-light">to a Lasting Legacy</span>
+                    </h2>
+                    <div class="mt-8 space-y-6 text-neutral-700 text-base md:text-lg leading-relaxed font-light">
+                        <p>In 1986, Rev. Benson Ezem had a life-altering encounter with Jesus Christ. What began as an intimate, personal commitment has grown structurally over decades into a dynamic engine touching thousands across Nigeria and global communities.</p>
+                        <p>Alongside Rev. Mrs. Patricia Ezem, they have built unified expressions of the Gospel—raising global altars of praise, championing higher academic pathways, and advancing regional medical equity.</p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="about.html" class="inline-flex items-center gap-2 text-sm font-semibold text-[#C0392B] group hover:underline">
+                           Learn More 
+                            <span class="transform transition-transform group-hover:translate-x-1">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-5 order-1 lg:order-2 relative px-4">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://i.pinimg.com/736x/2b/8e/64/2b8e646a8d00ca5f8ec26debd6db34f6.jpg" class="w-full object-cover aspect-[4/5]" alt="Founders">
+                    </div>
+                    <div class="absolute bottom-6 -left-2 md:-left-8 bg-white p-6 md:p-8 rounded-xl shadow-xl max-w-xs z-20 border border-neutral-100">
+                        <p class="italic text-neutral-600 text-sm leading-relaxed">"We are simply structural vessels. The ultimate weight of glory belongs to God alone."</p>
+                        <p class="mt-4 text-xs font-semibold uppercase tracking-wider text-[#1B3A6B]">— Rev. Benson &amp; Patricia Ezem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                
+                <!-- Mission Content -->
+                <div class="lg:col-span-7 order-2 lg:order-1">
+                    <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Our Purpose</span>
+                    <h2 class="heading-font text-4xl md:text-5xl lg:text-6xl leading-tight text-[#1B3A6B] tracking-tight">
+                        Our Mission
+                    </h2>
+                    
+                    <div class="mt-8 p-8 md:p-10 bg-white rounded-2xl shadow-lg border border-neutral-100 mission-card">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div class="w-12 h-12 bg-[#1B3A6B]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-bullseye text-xl text-[#C0392B]"></i>
+                            </div>
+                            <p class="text-lg md:text-xl text-neutral-800 leading-relaxed font-light">
+                                To honour God through <strong class="text-[#1B3A6B] font-semibold">worship, discipleship, service, and education</strong> — winning souls and empowering individuals and communities spiritually, educationally, and materially.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-6">
+                            <div class="pillar-item flex items-center gap-2 bg-[#F5F0E8] p-3 rounded-lg border-l-2 border-l-transparent transition-all duration-300">
+                                <i class="fas fa-pray text-[#B8870A] text-sm"></i>
+                                <span class="text-xs font-medium text-[#1B3A6B]">Worship</span>
+                            </div>
+                            <div class="pillar-item flex items-center gap-2 bg-[#F5F0E8] p-3 rounded-lg border-l-2 border-l-transparent transition-all duration-300">
+                                <i class="fas fa-users text-[#B8870A] text-sm"></i>
+                                <span class="text-xs font-medium text-[#1B3A6B]">Discipleship</span>
+                            </div>
+                            <div class="pillar-item flex items-center gap-2 bg-[#F5F0E8] p-3 rounded-lg border-l-2 border-l-transparent transition-all duration-300">
+                                <i class="fas fa-hand-holding-heart text-[#B8870A] text-sm"></i>
+                                <span class="text-xs font-medium text-[#1B3A6B]">Service</span>
+                            </div>
+                            <div class="pillar-item flex items-center gap-2 bg-[#F5F0E8] p-3 rounded-lg border-l-2 border-l-transparent transition-all duration-300">
+                                <i class="fas fa-graduation-cap text-[#B8870A] text-sm"></i>
+                                <span class="text-xs font-medium text-[#1B3A6B]">Education</span>
+                            </div>
+                            <div class="pillar-item flex items-center gap-2 bg-[#F5F0E8] p-3 rounded-lg border-l-2 border-l-transparent transition-all duration-300">
+                                <i class="fas fa-fire text-[#B8870A] text-sm"></i>
+                                <span class="text-xs font-medium text-[#1B3A6B]">Winning Souls</span>
+                            </div>
+                            <div class="pillar-item flex items-center gap-2 bg-[#F5F0E8] p-3 rounded-lg border-l-2 border-l-transparent transition-all duration-300">
+                                <i class="fas fa-hands-helping text-[#B8870A] text-sm"></i>
+                                <span class="text-xs font-medium text-[#1B3A6B]">Empowerment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mission Image -->
+                <div class="lg:col-span-5 order-1 lg:order-2 relative px-4">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://i.pinimg.com/1200x/f3/26/da/f326da9825925ca43faa7226a4a7fc47.jpg" class="w-full object-cover aspect-[4/5]" alt="Ministry in Action">
+                    </div>
+                    <div class="absolute -bottom-6 -right-2 md:-right-8 bg-white p-6 md:p-8 rounded-xl shadow-xl max-w-xs z-20 border border-neutral-100">
+                        <p class="italic text-neutral-600 text-sm leading-relaxed">"To honour God through worship, discipleship, service, and education."</p>
+                        <p class="mt-4 text-xs font-semibold uppercase tracking-wider text-[#1B3A6B]">— LHWO Mission Statement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <style>
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .body-font {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes subtle-zoom {
+            from { transform: scale(1.02); }
+            to { transform: scale(1.08); }
+        }
+        .animate-zoom {
+            animation: subtle-zoom 25s infinite alternate ease-in-out;
+        }
+        .mission-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mission-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(27, 58, 107, 0.3);
+        }
+        .pillar-item {
+            transition: all 0.3s ease;
+        }
+        .pillar-item:hover {
+            transform: translateX(8px);
+            border-left-color: #B8870A;
+        }
+    </style>
+
+    <section id="partner" class="py-24 md:py-32 bg-[#F5F0E8]">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <span class="uppercase tracking-widest text-xs font-bold text-[#C0392B] block mb-3">Join Hands</span>
+            <h2 class="heading-font text-4xl md:text-6xl text-[#1B3A6B] tracking-tight">Be Part of Something Eternal</h2>
+            <p class="mt-6 text-neutral-600 text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">Your recurring alignment enables the uncompromised expansion of spiritual development altars, continuous higher-education protection, and modern healthcare missions.</p>
+            
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="alert('Donation integration pipeline active.')" class="w-full sm:w-auto px-8 py-4 bg-[#C0392B] text-white rounded-full font-semibold tracking-wide text-sm shadow-lg hover:shadow-xl hover:bg-red-700 transition duration-300">
+                    Contribute Now
+                </button>
+                <button onclick="alert('Partnership framework manifest opened.')" class="w-full sm:w-auto px-8 py-4 border border-[#1B3A6B] text-[#1B3A6B] font-semibold tracking-wide text-sm rounded-full hover:bg-[#1B3A6B] hover:text-white transition duration-300">
+                    Become a Monthly Partner
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#112647] text-white/70 py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3 text-white">
+                        <span class="text-2xl">🔥</span>
+                        <span class="heading-font text-2xl font-bold tracking-tight">LivelyHope</span>
+                    </div>
+                    <p class="max-w-sm text-sm font-light leading-relaxed text-white/60">"Raising an Altar of Praise, Transforming Lives Forever"</p>
+                    <p class="text-xs tracking-wide text-[#B8870A] font-medium">Port Harcourt • Abuja • Ubakala, Abia State, Nigeria</p>
+                </div>
+                
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4>
+                    <p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p>
+                    <p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries &amp; Altars</a></p>
+                    <p class="text-sm"><a href="scholarships.html" class="hover:text-white transition">Scholarships</a></p>
+                    <p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p>
+                </div>
+                
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Connect Ecosystem</h4>
+                    <div class="flex gap-5 text-2xl text-white/60">
+                        <a href="#" class="hover:text-white transition" aria-label="Facebook Link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="Instagram Link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-white transition" aria-label="YouTube Link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-[11px] mt-16 pt-8 border-t border-white/5 text-white/40 tracking-wider">
+                © 2026 LivelyHope World Outreach Foundation • Incorporated 15th September 2005
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const spans = menuBtn.querySelectorAll('span');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+            
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+</html>
