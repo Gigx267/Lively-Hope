@@ -6,8 +6,7 @@
     <title>About Us - LivelyHope World Outreach</title>
     <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="LOGO.png">
-
-<link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,13 +39,99 @@
         .value-card:hover .value-text {
             color: rgba(255,255,255,0.8);
         }
-        /* Mobile menu enhanced background & smoothness */
-        #mobile-menu {
-            background-color: #0B2A4F; /* deep rich navy background for dropdown */
-            backdrop-filter: blur(0px);
-            background-image: linear-gradient(145deg, #0B2A4F 0%, #08203E 100%);
-            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+        
+        /* ========== REDESIGNED MOBILE BOTTOM TAB BAR ========== */
+        @media (max-width: 1023px) {
+            body {
+                padding-bottom: 70px !important; /* Space for bottom navbar */
+                padding-top: 73px !important;
+            }
+            /* Bottom navigation bar - same fresh design as homepage */
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                z-index: 200;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 10px 12px 22px;
+                border-radius: 24px 24px 0 0;
+                transition: all 0.2s ease;
+            }
+            .nav-tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                flex: 1;
+                padding: 6px 4px;
+                border-radius: 30px;
+                transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                color: #6b7280;
+                font-size: 12px;
+                font-weight: 500;
+                text-decoration: none;
+                background: transparent;
+            }
+            .nav-tab i {
+                font-size: 22px;
+                margin-bottom: 2px;
+                transition: transform 0.2s;
+            }
+            .nav-tab span {
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+            }
+            .nav-tab.active {
+                color: #C0392B;
+                background: rgba(192, 57, 43, 0.08);
+            }
+            .nav-tab.active i {
+                transform: translateY(-2px);
+            }
+            .nav-tab:active {
+                transform: scale(0.96);
+            }
+            /* Hide old hamburger and slide-out menu */
+            .lg\:hidden.flex.flex-col, #menu-btn {
+                display: none !important;
+            }
+            /* Hide desktop partner button on mobile */
+            .hidden.sm\:inline-flex.px-6.py-3 {
+                display: none !important;
+            }
+            /* Hide the old mobile drawer completely */
+            #mobile-menu {
+                display: none !important;
+            }
+            /* Ensure top nav bar stays clean */
+            nav.bg-white\/95 {
+                padding: 0;
+            }
+            .max-w-7xl.mx-auto.px-6.md\:px-12.py-4 {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+            body.overflow-hidden {
+                overflow: auto !important;
+            }
         }
+
+        /* Desktop unaffected */
+        @media (min-width: 1024px) {
+            .mobile-bottom-nav {
+                display: none !important;
+            }
+        }
+        
         .mobile-link {
             font-weight: 500;
             letter-spacing: -0.3px;
@@ -59,20 +144,14 @@
             padding-left: 20px;
             color: #B8870A !important;
         }
-        /* fix for iOS smooth scroll */
         html {
             scroll-behavior: smooth;
-        }
-        @media (max-width: 1023px) {
-            body {
-                padding-top: 73px;
-            }
         }
     </style>
 </head>
 <body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px] lg:pt-[83px]">
 
-    <!-- Navigation (matching homepage style, with enhanced mobile menu background) -->
+    <!-- Navigation (top bar - simplified for mobile) -->
     <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
             <div class="flex items-center gap-3">
@@ -86,9 +165,8 @@
                 </div>
             </div>
             <div class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-wider uppercase text-neutral-600">
-                 <a href="index.html" class="hover:text-[#B8870A] transition-colors duration-200 text-[#B8870A]">Home</a>
+                <a href="index.html" class="hover:text-[#B8870A] transition-colors duration-200">Home</a>
                 <a href="story.html" class="hover:text-[#B8870A] transition-colors duration-200">Our Story</a>
-               
                 <a href="programme.html" class="hover:text-[#B8870A] transition-colors duration-200">Programmes</a>
                 <a href="mission.html" class="hover:text-[#B8870A] transition-colors duration-200">Mission</a>
                 <a href="ministries.html" class="hover:text-[#B8870A] transition-colors duration-200">Ministries</a>
@@ -97,20 +175,19 @@
             </div>
             <div class="flex items-center gap-4">
                 <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#1B3A6B] text-white rounded-full hover:bg-[#C0392B] transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-sm hover:shadow-md">Partner With Us</a>
-                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu" style="display: none;">
                     <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
                     <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
                     <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
                 </button>
             </div>
         </div>
-        <!-- Mobile menu with deep solid background color (enhanced) -->
+        <!-- Old mobile menu (hidden via CSS) -->
         <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl" style="background-color: #0A2748; background-image: linear-gradient(135deg, #0A2748 0%, #051C33 100%);">
             <div class="flex flex-col space-y-6 text-left">
                 <span class="text-[10px] uppercase tracking-[0.3em] text-[#B8870A] font-bold border-b border-white/20 pb-3 inline-block w-max">Navigation</span>
-                                <a href="index.html" class="mobile-link text-[#B8870A] text-2xl heading-font transition-all duration-200">Home </a>
+                <a href="index.html" class="mobile-link text-[#B8870A] text-2xl heading-font transition-all duration-200">Home</a>
                 <a href="story.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Our Story</a>
-
                 <a href="programme.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Programmes & Activities</a>
                 <a href="mission.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Mission</a>
                 <a href="ministries.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-all duration-200">Ministries</a>
@@ -132,6 +209,30 @@
         </div>
     </nav>
 
+    <!-- NEW BOTTOM MOBILE TAB BAR - redesigned, modern, consistent with homepage -->
+    <div class="mobile-bottom-nav">
+        <a href="index.html" class="nav-tab" data-tab="home">
+            <i class="fa-solid fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="story.html" class="nav-tab" data-tab="story">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Story</span>
+        </a>
+        <a href="programme.html" class="nav-tab" data-tab="programs">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Programs</span>
+        </a>
+        <a href="mission.html" class="nav-tab" data-tab="mission">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Mission</span>
+        </a>
+        <a href="partner.html" class="nav-tab highlight-tab" data-tab="partner" style="background: rgba(192,57,43,0.12); color:#C0392B;">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <span>Partner</span>
+        </a>
+    </div>
+
     <!-- Hero Section -->
     <section class="relative py-28 md:py-36 bg-[#1B3A6B] overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/gold-scales.png')]"></div>
@@ -145,7 +246,7 @@
         </div>
     </section>
 
-    <!-- Identity Cards: Full Name, HQ, Scripture etc -->
+    <!-- Identity Cards -->
     <section class="py-16 md:py-20 bg-[#F5F0E8] border-b border-neutral-200">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -227,7 +328,7 @@
         </div>
     </section>
 
-    <!-- The Founding Story (Detailed Narrative) -->
+    <!-- The Founding Story -->
     <section class="py-20 bg-[#F5F0E8]">
         <div class="max-w-5xl mx-auto px-6 md:px-12">
             <div class="text-center mb-12">
@@ -332,7 +433,7 @@
         </div>
     </section>
 
-    <!-- Footer identical to homepage style -->
+    <!-- Footer -->
     <footer class="bg-[#112647] text-white/70 py-16 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -358,22 +459,29 @@
     </footer>
 
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const spans = menuBtn.querySelectorAll('span');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-            spans[0].classList.toggle('rotate-45'); 
-            spans[0].classList.toggle('translate-y-2');
-            spans[1].classList.toggle('opacity-0');
-            spans[2].classList.toggle('-rotate-45'); 
-            spans[2].classList.toggle('-translate-y-2');
-            document.body.classList.toggle('overflow-hidden');
-        }
-        menuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-        // Ensure that background color remains solid on close/open (already inline styles)
+        // Active tab highlight based on current page path
+        const currentPath = window.location.pathname;
+        const tabs = document.querySelectorAll('.nav-tab');
+        tabs.forEach(tab => {
+            const href = tab.getAttribute('href');
+            if (href && (currentPath.endsWith(href) || (currentPath === '/' && href === 'index.html'))) {
+                tab.classList.add('active');
+            } else if (currentPath.includes('about') && href === 'index.html') {
+                // do nothing, about page uses home not active usually
+            }
+        });
+        // Ensure menu button old drawer never interferes
+        const oldMenuBtn = document.getElementById('menu-btn');
+        if (oldMenuBtn) oldMenuBtn.style.display = 'none';
+        document.body.classList.remove('overflow-hidden');
+        
+        // click handler for bottom nav active style (visual feedback)
+        document.querySelectorAll('.nav-tab').forEach(link => {
+            link.addEventListener('click', function(e) {
+                document.querySelectorAll('.nav-tab').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
