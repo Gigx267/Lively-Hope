@@ -2,37 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LivelyHope World Outreach</title>
-     <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LivelyHope World Outreach — Mobile Redesigned Nav</title>
+    <link rel="icon" type="image/png" href="LOGO.png" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="LOGO.png">
-
-<link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+    <link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        .heading-font {
-            font-family: 'Playfair Display', serif;
+        .heading-font { font-family: 'Playfair Display', serif; }
+        .body-font { font-family: 'Inter', sans-serif; }
+        @keyframes subtle-zoom { from { transform: scale(1.02); } to { transform: scale(1.08); } }
+        .animate-zoom { animation: subtle-zoom 25s infinite alternate ease-in-out; }
+        
+        /* Mobile bottom tab bar styles - fresh modern design */
+        @media (max-width: 1023px) {
+            body {
+                padding-bottom: 70px !important; /* Space for bottom navbar */
+            }
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                z-index: 200;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 10px 12px 22px;
+                border-radius: 24px 24px 0 0;
+                transition: all 0.2s ease;
+            }
+            .nav-tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                flex: 1;
+                padding: 6px 4px;
+                border-radius: 30px;
+                transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                color: #6b7280;
+                font-size: 12px;
+                font-weight: 500;
+                text-decoration: none;
+                background: transparent;
+            }
+            .nav-tab i {
+                font-size: 22px;
+                margin-bottom: 2px;
+                transition: transform 0.2s;
+            }
+            .nav-tab span {
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+            }
+            .nav-tab.active {
+                color: #C0392B;
+                background: rgba(192, 57, 43, 0.08);
+            }
+            .nav-tab.active i {
+                transform: translateY(-2px);
+            }
+            .nav-tab:active {
+                transform: scale(0.96);
+            }
+            /* Hide old slide-out menu and standard hamburger on mobile? but keep functional fallback? We'll replace hamburger with bottom nav */
+            /* Adjust main nav bar on mobile to be cleaner, remove hamburger icon, show minimal branding */
+            .desktop-nav-links, .lg\:flex.lg\:items-center {
+                display: none !important;
+            }
+            nav .flex.items-center.gap-4 .lg\:hidden {
+                /* hide hamburger button completely, we don't need it */
+                display: none !important;
+            }
+            /* Make top nav bar simpler on mobile */
+            nav.bg-white\/95 {
+                padding: 8px 0;
+            }
+            .max-w-7xl.mx-auto.px-6.md\:px-12.py-4 {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            /* Adjust partner button visibility on mobile - keep inside bottom nav, but also keep one small CTA? we keep Partner With Us in bottom nav as special */
+            .hidden.sm\:inline-flex.px-6.py-3 {
+                display: none !important;
+            }
+            /* Override for mobile menu drawer to be hidden and never shown */
+            #mobile-menu {
+                display: none !important;
+            }
+            /* Reset body overflow */
+            body.overflow-hidden {
+                overflow: auto !important;
+            }
+            /* Additional polish for bottom nav active indicator */
+            .nav-tab .tab-label {
+                font-size: 10px;
+                font-weight: 600;
+            }
         }
-        .body-font {
-            font-family: 'Inter', sans-serif;
+
+        /* Ensure desktop remains untouched */
+        @media (min-width: 1024px) {
+            .mobile-bottom-nav {
+                display: none !important;
+            }
+            .desktop-nav-links {
+                display: flex !important;
+            }
         }
-        @keyframes subtle-zoom {
-            from { transform: scale(1.02); }
-            to { transform: scale(1.08); }
+
+        /* fallback for smooth active states */
+        .pillar-item {
+            transition: all 0.3s ease;
         }
-        .animate-zoom {
-            animation: subtle-zoom 25s infinite alternate ease-in-out;
+        .pillar-item:hover {
+            transform: translateX(8px);
+            border-left-color: #B8870A;
+        }
+        .mission-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mission-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(27, 58, 107, 0.3);
         }
     </style>
 </head>
-<body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px]">
+<body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[70px] md:pt-[83px]">
 
+    <!-- redesigned top navbar: clean, minimal, logo only for mobile, keep full menu for desktop -->
     <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100">
         <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
             
+            <!-- Logo area unchanged for brand consistency -->
             <div class="flex items-center gap-3">
                 <div class="flex items-center">
                     <img style="height: 50px; opacity: 0.85;" src="LHWOF_logo_final (1).svg" alt="LHWOF Logo" onerror="this.style.display='none'; document.getElementById('fallback-fire').style.display='block'">
@@ -44,6 +156,7 @@
                 </div>
             </div>
 
+            <!-- Desktop navigation (unchanged) -->
             <div class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-wider uppercase text-neutral-600">
                 <a href="story.html" class="hover:text-[#B8870A] transition-colors duration-200">Our Story</a>
                 <a href="about.html" class="hover:text-[#B8870A] transition-colors duration-200">About Us</a>
@@ -51,16 +164,16 @@
                 <a href="mission.html" class="hover:text-[#B8870A] transition-colors duration-200">Mission</a>
                 <a href="ministries.html" class="hover:text-[#B8870A] transition-colors duration-200">Ministries</a>
                 <a href="scholarship.html" class="hover:text-[#B8870A] transition-colors duration-200">Scholarships</a>
-               
                 <a href="contact.html" class="hover:text-[#B8870A] transition-colors duration-200">Contact</a>
             </div>
 
+            <!-- On mobile, we hide partner button and hamburger, replaced with bottom nav bar -->
             <div class="flex items-center gap-4">
                 <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#1B3A6B] text-white rounded-full hover:bg-[#C0392B] transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-sm hover:shadow-md">
                     Partner With Us
                 </a>
-                
-                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                <!-- Hamburger button completely hidden on mobile with CSS, but remove via inline style later? but hiding via CSS ensures no toggle -->
+                <button id="menu-btn" class="lg:hidden hidden flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
                     <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
                     <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
                     <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
@@ -68,7 +181,9 @@
             </div>
         </div>
 
+        <!-- OLD mobile slide-out menu - completely removed from mobile view (display:none via CSS), but keep structure for desktop? -->
         <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 bg-[#1B3A6B] z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl">
+            <!-- this drawer will be hidden on mobile due to .mobile-bottom-nav display; we can keep but user won't see it. To be clean, remove interactions -->
             <div class="flex flex-col space-y-5 text-left">
                 <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A90D9] font-bold border-b border-white/10 pb-2">Navigation Links</span>
                 <a href="story.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Our Story</a>
@@ -80,7 +195,6 @@
                 <a href="partner.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Become a Partner</a>
                 <a href="contact.html" class="mobile-link text-white text-2xl heading-font hover:text-[#B8870A] transition-colors">Contact Us</a>
             </div>
-            
             <div class="space-y-6 pt-6 border-t border-white/10">
                 <a href="partner.html" class="block w-full text-center px-6 py-3.5 bg-[#C0392B] text-white rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
                     Partner With Us
@@ -90,7 +204,32 @@
         </div>
     </nav>
 
-    <section class="relative h-[calc(100vh-83px)] min-h-[650px] flex items-center overflow-hidden bg-[#1B3A6B]">
+    <!-- NEW BOTTOM MOBILE TAB BAR - redesigned from scratch, intuitive + elegant -->
+    <div class="mobile-bottom-nav">
+        <a href="story.html" class="nav-tab" data-tab="story">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Story</span>
+        </a>
+        <a href="programme.html" class="nav-tab" data-tab="programs">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Programs</span>
+        </a>
+        <a href="mission.html" class="nav-tab" data-tab="mission">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Mission</span>
+        </a>
+        <a href="ministries.html" class="nav-tab" data-tab="ministries">
+            <i class="fa-solid fa-church"></i>
+            <span>Ministries</span>
+        </a>
+        <a href="partner.html" class="nav-tab highlight-tab" data-tab="partner" style="background: rgba(192,57,43,0.12); color:#C0392B;">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <span>Partner</span>
+        </a>
+    </div>
+
+    <!-- Hero section (unchanged but ensure body padding works) -->
+    <section class="relative h-[calc(100vh-70px)] min-h-[650px] flex items-center overflow-hidden bg-[#1B3A6B]">
         <div class="absolute inset-0 z-0">
             <img src="https://i.pinimg.com/1200x/d6/32/c9/d632c9e22dd3e1a55acb5eba9f7c2e2e.jpg" class="w-full h-full object-cover scale-105 animate-zoom" alt="Worship Atmosphere">
             <div class="absolute inset-0 bg-gradient-to-r from-[#1B3A6B]/95 via-[#1B3A6B]/75 to-transparent"></div>
@@ -135,6 +274,7 @@
         </div>
     </section>
 
+    <!-- Story Section (legacy) -->
     <section id="story" class="py-24 md:py-32 bg-[#F5F0E8]">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
@@ -172,8 +312,6 @@
     <section class="py-24 md:py-32 bg-[#F5F0E8]">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-                
-                <!-- Mission Content -->
                 <div class="lg:col-span-7 order-2 lg:order-1">
                     <span class="uppercase tracking-[0.2em] text-xs font-bold text-[#C0392B] mb-3 block">Our Purpose</span>
                     <h2 class="heading-font text-4xl md:text-5xl lg:text-6xl leading-tight text-[#1B3A6B] tracking-tight">
@@ -219,7 +357,6 @@
                     </div>
                 </div>
                 
-                <!-- Mission Image -->
                 <div class="lg:col-span-5 order-1 lg:order-2 relative px-4">
                     <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                         <img src="https://i.pinimg.com/1200x/f3/26/da/f326da9825925ca43faa7226a4a7fc47.jpg" class="w-full object-cover aspect-[4/5]" alt="Ministry in Action">
@@ -232,36 +369,8 @@
             </div>
         </div>
     </section>
-     <style>
-        .heading-font {
-            font-family: 'Playfair Display', serif;
-        }
-        .body-font {
-            font-family: 'Inter', sans-serif;
-        }
-        @keyframes subtle-zoom {
-            from { transform: scale(1.02); }
-            to { transform: scale(1.08); }
-        }
-        .animate-zoom {
-            animation: subtle-zoom 25s infinite alternate ease-in-out;
-        }
-        .mission-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .mission-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px -15px rgba(27, 58, 107, 0.3);
-        }
-        .pillar-item {
-            transition: all 0.3s ease;
-        }
-        .pillar-item:hover {
-            transform: translateX(8px);
-            border-left-color: #B8870A;
-        }
-    </style>
 
+    <!-- Partner Call To Action -->
     <section id="partner" class="py-24 md:py-32 bg-[#F5F0E8]">
         <div class="max-w-4xl mx-auto text-center px-6">
             <span class="uppercase tracking-widest text-xs font-bold text-[#C0392B] block mb-3">Join Hands</span>
@@ -295,7 +404,7 @@
                     <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4>
                     <p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p>
                     <p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries &amp; Altars</a></p>
-                    <p class="text-sm"><a href="scholarships.html" class="hover:text-white transition">Scholarships</a></p>
+                    <p class="text-sm"><a href="scholarship.html" class="hover:text-white transition">Scholarships</a></p>
                     <p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p>
                 </div>
                 
@@ -316,26 +425,36 @@
     </footer>
 
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const spans = menuBtn.querySelectorAll('span');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-            
-            spans[0].classList.toggle('rotate-45');
-            spans[0].classList.toggle('translate-y-2');
-            spans[1].classList.toggle('opacity-0');
-            spans[2].classList.toggle('-rotate-45');
-            spans[2].classList.toggle('-translate-y-2');
-            
-            document.body.classList.toggle('overflow-hidden');
+        // Active tab highlight based on current page path (simple)
+        const currentPath = window.location.pathname;
+        const tabs = document.querySelectorAll('.nav-tab');
+        tabs.forEach(tab => {
+            const href = tab.getAttribute('href');
+            if (href && (currentPath.endsWith(href) || (currentPath === '/' && href === 'story.html'))) {
+                tab.classList.add('active');
+            } else if (currentPath === '/' && href === 'story.html') {
+                tab.classList.add('active');
+            }
+        });
+        // Fallback: if no active match, set default for story? fine.
+        // Ensure that the old hamburger menu does not cause any interference 
+        const oldMenuBtn = document.getElementById('menu-btn');
+        const oldMobileMenu = document.getElementById('mobile-menu');
+        if (oldMenuBtn && oldMobileMenu) {
+            // disable any toggling behavior that could interfere
+            oldMenuBtn.removeEventListener('click', () => {});
+            oldMenuBtn.style.display = 'none';
         }
-
-        menuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
+        // remove any body overflow locks from legacy
+        document.body.classList.remove('overflow-hidden');
+        
+        // subtle bottom nav active ripple: add click feedback to preserve active style on click
+        document.querySelectorAll('.nav-tab').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // just let navigation happen naturally, but we can add instant active class for responsiveness
+                document.querySelectorAll('.nav-tab').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
     </script>
 </body>
