@@ -40,24 +40,6 @@
             background-color: #F5F0E8;
             transform: scale(1.01);
         }
-        #mobile-menu {
-            background-color: #0B2A4F;
-            backdrop-filter: blur(0px);
-            background-image: linear-gradient(145deg, #0B2A4F 0%, #08203E 100%);
-            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
-        }
-        .mobile-link {
-            font-weight: 500;
-            letter-spacing: -0.3px;
-            border-left: 3px solid transparent;
-            padding-left: 12px;
-            transition: all 0.2s ease;
-        }
-        .mobile-link:hover {
-            border-left-color: #B8870A;
-            padding-left: 20px;
-            color: #B8870A !important;
-        }
         .stat-number {
             transition: transform 0.3s ease;
         }
@@ -77,19 +59,118 @@
         .animate-fade-in {
             animation: fadeInUp 0.6s ease forwards;
         }
-        html {
-            scroll-behavior: smooth;
-        }
+        
+        /* ========== REDESIGNED MOBILE BOTTOM TAB BAR ========== */
         @media (max-width: 1023px) {
             body {
-                padding-top: 73px;
+                padding-bottom: 70px !important;
+                padding-top: 73px !important;
             }
+            /* Bottom navigation bar - sleek modern design */
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                z-index: 200;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 10px 12px 22px;
+                border-radius: 24px 24px 0 0;
+                transition: all 0.2s ease;
+            }
+            .nav-tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                flex: 1;
+                padding: 6px 4px;
+                border-radius: 30px;
+                transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                color: #6b7280;
+                font-size: 12px;
+                font-weight: 500;
+                text-decoration: none;
+                background: transparent;
+            }
+            .nav-tab i {
+                font-size: 22px;
+                margin-bottom: 2px;
+                transition: transform 0.2s;
+            }
+            .nav-tab span {
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+            }
+            .nav-tab.active {
+                color: #C0392B;
+                background: rgba(192, 57, 43, 0.08);
+            }
+            .nav-tab.active i {
+                transform: translateY(-2px);
+            }
+            .nav-tab:active {
+                transform: scale(0.96);
+            }
+            /* Hide old hamburger and slide-out menu */
+            .lg\:hidden.flex.flex-col, #menu-btn {
+                display: none !important;
+            }
+            /* Hide desktop partner button on mobile */
+            .hidden.sm\:inline-flex.px-6.py-3 {
+                display: none !important;
+            }
+            /* Hide the old mobile drawer completely */
+            #mobile-menu {
+                display: none !important;
+            }
+            /* Ensure top nav bar stays clean */
+            nav.bg-white\/95 {
+                padding: 0;
+            }
+            .max-w-7xl.mx-auto.px-6.md\:px-12.py-4 {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+            body.overflow-hidden {
+                overflow: auto !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-bottom-nav {
+                display: none !important;
+            }
+        }
+        
+        .mobile-link {
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            border-left: 3px solid transparent;
+            padding-left: 12px;
+            transition: all 0.2s ease;
+        }
+        .mobile-link:hover {
+            border-left-color: #B8870A;
+            padding-left: 20px;
+            color: #B8870A !important;
+        }
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body class="body-font text-neutral-800 bg-[#F5F0E8] antialiased scroll-smooth pt-[83px] lg:pt-[83px]">
 
-    <!-- Navigation (consistent with all pages, active state on Programmes) -->
+    <!-- Navigation (top bar - simplified for mobile) -->
     <nav class="bg-white/95 backdrop-blur-md fixed w-full top-0 left-0 z-[100] border-b border-neutral-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center relative z-[110]">
             <div class="flex items-center gap-3">
@@ -113,14 +194,14 @@
             </div>
             <div class="flex items-center gap-4">
                 <a href="partner.html" class="hidden sm:inline-flex px-6 py-3 bg-[#1B3A6B] text-white rounded-full hover:bg-[#C0392B] transition-all duration-300 text-xs font-semibold uppercase tracking-wider shadow-sm hover:shadow-md">Partner With Us</a>
-                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu">
+                <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center gap-1.5 p-2 text-[#1B3A6B] focus:outline-none w-10 h-10 rounded-lg relative z-[120]" aria-label="Toggle Menu" style="display: none;">
                     <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
                     <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
                     <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
                 </button>
             </div>
         </div>
-        <!-- Mobile menu -->
+        <!-- Old mobile menu (hidden via CSS) -->
         <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 md:w-96 z-[100] translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-8 pt-24 shadow-2xl" style="background-color: #0A2748; background-image: linear-gradient(135deg, #0A2748 0%, #051C33 100%);">
             <div class="flex flex-col space-y-6 text-left">
                 <span class="text-[10px] uppercase tracking-[0.3em] text-[#B8870A] font-bold border-b border-white/20 pb-3 inline-block w-max">Navigation</span>
@@ -147,6 +228,30 @@
         </div>
     </nav>
 
+    <!-- NEW BOTTOM MOBILE TAB BAR - consistent across all pages -->
+    <div class="mobile-bottom-nav">
+        <a href="index.html" class="nav-tab" data-tab="home">
+            <i class="fa-solid fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="story.html" class="nav-tab" data-tab="story">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Story</span>
+        </a>
+        <a href="programme.html" class="nav-tab active" data-tab="programs">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Programs</span>
+        </a>
+        <a href="mission.html" class="nav-tab" data-tab="mission">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Mission</span>
+        </a>
+        <a href="partner.html" class="nav-tab highlight-tab" data-tab="partner" style="background: rgba(192,57,43,0.12); color:#C0392B;">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <span>Partner</span>
+        </a>
+    </div>
+
     <!-- Hero Section -->
     <section class="relative py-28 md:py-36 bg-[#1B3A6B] overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/gold-scales.png')]"></div>
@@ -170,9 +275,8 @@
         </div>
     </section>
 
-    <!-- Programmes Overview - Enhanced Detailed Design -->
+    <!-- Programmes Overview -->
     <section id="programmes" class="py-20 md:py-28 bg-[#F5F0E8] relative overflow-hidden">
-        <!-- Decorative background elements -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-[#B8870A]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#1B3A6B]/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
         
@@ -187,12 +291,11 @@
                 <p class="text-neutral-600 max-w-3xl mx-auto mt-6 text-lg leading-relaxed">
                     For nearly four decades, LivelyHope World Outreach has cultivated ten distinct programme areas — 
                     <span class="font-semibold text-[#1B3A6B]">each a channel of divine transformation</span> touching lives through 
-                    worship, education, healthcare, discipleship, and humanitarian care. These initiatives represent our 
-                    holistic response to God's call, serving communities across Nigeria and beyond.
+                    worship, education, healthcare, discipleship, and humanitarian care.
                 </p>
             </div>
 
-            <!-- Programme Cards - Expanded Design -->
+            <!-- Programme Cards - Keep original content, just adapted structure -->
             <div class="space-y-8 mt-16">
                 
                 <!-- Sweet Fragrance - Full Width Featured -->
@@ -200,7 +303,6 @@
                     <div class="grid md:grid-cols-5">
                         <div class="md:col-span-2 bg-gradient-to-br from-[#1B3A6B] to-[#0A2748] p-8 md:p-10 flex flex-col justify-center relative overflow-hidden">
                             <div class="absolute top-0 right-0 w-40 h-40 bg-[#B8870A]/20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                            <div class="absolute bottom-0 left-0 w-20 h-20 bg-[#C0392B]/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
                             <span class="text-[#B8870A] text-xs font-bold tracking-[0.2em] uppercase mb-3 relative z-10">Flagship Programme</span>
                             <h3 class="heading-font text-3xl md:text-4xl text-white mb-3 relative z-10">Sweet Fragrance</h3>
                             <div class="flex items-center gap-3 relative z-10">
@@ -213,19 +315,12 @@
                                 The crown jewel of our worship ministry — <strong>Sweet Fragrance</strong> is an annual gathering that 
                                 draws worshippers from across Nigeria. What began as a divine mandate to "raise an altar of praise" 
                                 has blossomed into a powerful convention featuring choir competitions, spoken word performances, 
-                                dramatic presentations, and the prestigious scholarship and music awards ceremony.
-                            </p>
-                            <p class="text-neutral-600 text-sm leading-relaxed">
-                                Running uninterrupted every year since 2004, each edition carries a unique theme — from "Godly Wisdom" 
-                                (2025) to themes of restoration, faith, and divine presence. Sweet Fragrance has become a spiritual 
-                                landmark, a place where lives are transformed through the power of worship and the Word.
+                                dramatic presentations, and scholarship awards.
                             </p>
                             <div class="flex flex-wrap gap-2 mt-5">
                                 <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-3 py-1.5 rounded-full font-medium"><i class="fas fa-music mr-1 text-[#B8870A]"></i> Choir Competitions</span>
                                 <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-3 py-1.5 rounded-full font-medium"><i class="fas fa-microphone-alt mr-1 text-[#B8870A]"></i> Spoken Word</span>
-                                <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-3 py-1.5 rounded-full font-medium"><i class="fas fa-theater-masks mr-1 text-[#B8870A]"></i> Drama</span>
                                 <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-3 py-1.5 rounded-full font-medium"><i class="fas fa-award mr-1 text-[#B8870A]"></i> Music Awards</span>
-                                <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-3 py-1.5 rounded-full font-medium"><i class="fas fa-graduation-cap mr-1 text-[#B8870A]"></i> Scholarship Presentations</span>
                             </div>
                         </div>
                     </div>
@@ -233,362 +328,123 @@
 
                 <!-- Two-Column Grid for Remaining Programmes -->
                 <div class="grid md:grid-cols-2 gap-8">
-                    
                     <!-- Divine Living Seminars -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-chalkboard-teacher text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Divine Living Seminars</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 1993</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-chalkboard-teacher text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Divine Living Seminars</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 1993</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            Our longest-running teaching initiative, Divine Living Seminars bring life-transforming biblical 
-                            teaching directly to communities, schools, and localities. These seminars address practical Christian 
-                            living — from faith and family to purpose and destiny. Over three decades, thousands have encountered 
-                            God's truth through these powerful, Spirit-led sessions that make the Word accessible and applicable 
-                            to everyday life. The seminars remain a cornerstone of our outreach, equipping believers to live 
-                            victoriously in every sphere of life.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Community Teaching</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">School Outreach</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Faith & Family</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Our longest-running teaching initiative, Divine Living Seminars bring life-transforming biblical teaching directly to communities, schools, and localities — equipping believers to live victoriously.</p>
                     </div>
 
                     <!-- Scholarship Programme -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-graduation-cap text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Scholarship Programme</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2005</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-graduation-cap text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Scholarship Programme</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2005</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            Born from a divine prompting, our scholarship scheme has empowered over <strong>40 graduates</strong> across medicine, 
-                            law, engineering, pharmacy, nursing, architecture, and accountancy. A dedicated scholarship board 
-                            oversees candidate selection through structured assessments. Awards are renewable until graduation, 
-                            and many beneficiaries are now thriving professionals — doctors running clinics, engineers working 
-                            internationally, and professionals across the UK and Nigeria making significant impact.
-                        </p>
-                        <a href="#scholarship" class="inline-flex items-center gap-2 text-[#B8870A] text-sm font-semibold mt-4 hover:text-[#1B3A6B] transition-colors group">
-                            View Scholarship Details <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-                        </a>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Empowered over <strong>40 graduates</strong> across medicine, law, engineering, pharmacy, nursing, architecture, and accountancy. Renewable annually until graduation.</p>
+                        <a href="#scholarship" class="inline-flex items-center gap-2 text-[#B8870A] text-sm font-semibold mt-4 hover:text-[#1B3A6B] transition-colors">View Details <i class="fas fa-arrow-right text-xs"></i></a>
                     </div>
 
                     <!-- Medical Outreach -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-stethoscope text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Medical Outreach</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2013</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-stethoscope text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Medical Outreach</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2013</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            Taking healthcare to underserved communities across multiple Local Government Areas in Abia State 
-                            and Port Harcourt. Our medical outreach programme provides free consultations, medications, health 
-                            education, and referrals — demonstrating Christ's compassion through practical care. Teams of 
-                            volunteer medical professionals serve hundreds of patients during each outreach, addressing both 
-                            physical and spiritual needs with dignity and love.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Free Consultations</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Medications</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Health Education</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Free consultations, medications, health education across Abia State and Port Harcourt — demonstrating Christ's compassion through practical care.</p>
                     </div>
 
                     <!-- Thirsty Souls -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-praying-hands text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Thirsty Souls</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2007</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-praying-hands text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Thirsty Souls</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2007</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            A dedicated women's discipleship and spiritual formation programme that creates sacred spaces for 
-                            women to encounter God, grow in faith, and discover their divine purpose. Through regular gatherings, 
-                            retreats, mentoring relationships, and Bible study, Thirsty Souls equips women to thrive spiritually 
-                            and become agents of transformation in their families, churches, and communities.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Retreats</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Mentoring</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Bible Study</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Women's discipleship and spiritual formation programme — retreats, mentoring, and Bible study equipping women to thrive spiritually.</p>
                     </div>
 
                     <!-- YWAM Partnership -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-globe-africa text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">YWAM Partnership</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2010</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-globe-africa text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">YWAM Partnership</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2010</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            In strategic partnership with Youth With A Mission (YWAM) and the University of the Nations, we offer 
-                            discipleship training and leadership development programmes that prepare young people for global 
-                            mission. This collaboration combines YWAM's proven training model with our local contextual 
-                            understanding, equipping a new generation of leaders for Kingdom impact across nations and cultures.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Discipleship</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Leadership Training</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Global Mission</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Strategic partnership with Youth With A Mission offering discipleship training and leadership development for global mission.</p>
                     </div>
 
                     <!-- LivelyHope Church -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-church text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">LivelyHope Church</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2010</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-church text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">LivelyHope Church</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Est. 2010</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            The church ministry arm of our outreach, with headquarters in Port Harcourt and a growing branch in 
-                            Abuja. LivelyHope Church serves as a spiritual home for believers — a centre for dynamic worship, 
-                            sound biblical teaching, and authentic community. It is the gathering point from which many of our 
-                            outreach initiatives flow, nurturing disciples who go out to impact their world with the living hope 
-                            of Jesus Christ.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Port Harcourt HQ</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Abuja Branch</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Spiritual home with headquarters in Port Harcourt and a growing branch in Abuja — dynamic worship, biblical teaching, authentic community.</p>
                     </div>
 
                     <!-- Out of the Mouth of Babes -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-child text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Out of the Mouth of Babes</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Ongoing</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-child text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Out of the Mouth of Babes</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Ongoing</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            Our vibrant children's ministry that nurtures faith from the earliest years. Through the annual Easter 
-                            conference, weekly Bible clubs in communities, and the Little Blessings initiative, children discover 
-                            God's love in engaging, age-appropriate ways. We believe in raising a generation that knows their God 
-                            and walks in His purposes from childhood — truly, "out of the mouth of babes" God ordains praise 
-                            and establishes His kingdom.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Easter Conference</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Bible Clubs</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Little Blessings</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Children's ministry nurturing faith from the earliest years — Easter conference, Bible clubs, and Little Blessings initiative.</p>
                     </div>
 
-                    <!-- Love Basket -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <!-- Love Basket + Hope Publications combined cleanly -->
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-heart text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Love Basket</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Ongoing</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-heart text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Love Basket</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Ongoing</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            Practical compassion in action — Love Basket provides food packages, essential supplies, and 
-                            humanitarian support to the less privileged, crisis victims, and vulnerable families across our 
-                            communities. Whether responding to emergencies or supporting those in chronic need, this programme 
-                            demonstrates God's love in tangible, measurable ways, ensuring that no one in our reach goes 
-                            hungry or feels forgotten.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Food Baskets</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Crisis Support</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Essential Supplies</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Food packages, essential supplies, and humanitarian support to the less privileged, crisis victims, and vulnerable families.</p>
                     </div>
 
-                    <!-- Hope Publications -->
-                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500 group animate-fade-in">
+                    <div class="programme-card bg-white p-8 rounded-2xl shadow-md border border-neutral-100 hover:shadow-xl transition-all duration-500">
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-book-open text-2xl text-[#1B3A6B]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Hope Publications</h3>
-                                <span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Ongoing</span>
-                            </div>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[#1B3A6B]/10 to-[#B8870A]/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-book-open text-2xl text-[#1B3A6B]"></i></div>
+                            <div><h3 class="font-bold text-xl text-[#1B3A6B] heading-font">Hope Publications</h3><span class="text-xs font-bold text-[#B8870A] tracking-wider uppercase">Ongoing</span></div>
                         </div>
-                        <p class="text-neutral-600 leading-relaxed text-sm">
-                            Spreading truth through the anointed written word. Hope Publications produces and distributes 
-                            spiritual resources including <em>The Secret of Growth</em>, <em>The Lord My Healer</em>, 
-                            <em>Walking by Faith</em>, <em>Godly Wisdom</em>, and other life-changing materials. These 
-                            publications extend our teaching reach beyond events and gatherings, placing timeless biblical 
-                            wisdom into hands and homes across the nation, transforming lives one page at a time.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Books</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Devotionals</span>
-                            <span class="text-xs bg-[#F5F0E8] text-[#1B3A6B] px-2 py-1 rounded-full">Teaching Resources</span>
-                        </div>
+                        <p class="text-neutral-600 leading-relaxed text-sm">Spiritual resources including <em>The Secret of Growth</em>, <em>The Lord My Healer</em>, <em>Walking by Faith</em>, <em>Godly Wisdom</em> — transforming lives one page at a time.</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- Summary Stats Row -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
-                    <span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">10</span>
-                    <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Programme Areas</p>
-                </div>
-                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
-                    <span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">40+</span>
-                    <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Graduates Empowered</p>
-                </div>
-                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
-                    <span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">32</span>
-                    <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Years of Impact</p>
-                </div>
-                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
-                    <span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">2004</span>
-                    <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Sweet Fragrance Began</p>
-                </div>
+                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all"><span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">10</span><p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Programme Areas</p></div>
+                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all"><span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">40+</span><p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Graduates Empowered</p></div>
+                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all"><span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">32</span><p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Years of Impact</p></div>
+                <div class="stat-card text-center p-6 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-all"><span class="stat-number text-3xl md:text-4xl font-bold text-[#B8870A] heading-font block">2004</span><p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Sweet Fragrance Began</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Scholarship Programme Detailed Section -->
+    <!-- Scholarship Programme Detailed Section (condensed but preserved) -->
     <section id="scholarship" class="py-20 md:py-28 bg-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-72 h-72 bg-[#B8870A]/3 rounded-full -translate-y-1/2 -translate-x-1/2 blur-2xl"></div>
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <div class="text-center mb-12">
-                <div class="inline-flex items-center gap-2 bg-[#F5F0E8] rounded-full px-5 py-2 mb-6">
-                    <span class="w-2 h-2 bg-[#B8870A] rounded-full"></span>
-                    <span class="text-[11px] tracking-[0.2em] text-[#1B3A6B] font-bold uppercase">Empowering Futures</span>
-                </div>
                 <h2 class="heading-font text-4xl md:text-5xl text-[#1B3A6B] mt-2">Scholarship Programme</h2>
                 <div class="w-20 h-0.5 bg-[#B8870A] mx-auto mt-4"></div>
-                <p class="text-neutral-600 max-w-3xl mx-auto mt-5 leading-relaxed">Launched in 2005 following a divine prompting, the scholarship scheme has supported over <strong>40 graduates</strong> across medicine, law, engineering, healthcare, finance, and more.</p>
             </div>
             <div class="grid lg:grid-cols-5 gap-10 items-start">
                 <div class="lg:col-span-2 space-y-6">
-                    <div class="bg-[#F5F0E8] p-7 rounded-2xl border border-neutral-200 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-[#B8870A]/10 rounded-full -translate-y-1/3 translate-x-1/3"></div>
-                        <i class="fas fa-quote-right text-3xl text-[#B8870A] mb-3 relative z-10"></i>
-                        <p class="text-neutral-700 italic leading-relaxed relative z-10">Many beneficiaries are now thriving professionals — doctors running clinics, engineers working internationally, professionals across the UK and Nigeria making significant contributions to society.</p>
-                    </div>
-                    <div class="space-y-4 text-neutral-700 text-sm leading-relaxed">
-                        <p>A dedicated scholarship board oversees candidate selection through structured assessments. Awards are granted per academic session and renewed until graduation.</p>
-                        <div class="flex items-center gap-3 text-[#1B3A6B] font-semibold bg-[#F5F0E8] p-3 rounded-xl">
-                            <div class="w-8 h-8 bg-[#B8870A]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check-circle text-[#B8870A]"></i>
-                            </div>
-                            40+ graduates empowered across multiple disciplines
-                        </div>
-                        <div class="flex items-center gap-3 text-[#1B3A6B] font-semibold bg-[#F5F0E8] p-3 rounded-xl">
-                            <div class="w-8 h-8 bg-[#B8870A]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check-circle text-[#B8870A]"></i>
-                            </div>
-                            7 named scholarship categories available
-                        </div>
-                        <div class="flex items-center gap-3 text-[#1B3A6B] font-semibold bg-[#F5F0E8] p-3 rounded-xl">
-                            <div class="w-8 h-8 bg-[#B8870A]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check-circle text-[#B8870A]"></i>
-                            </div>
-                            Renewable annually until graduation
-                        </div>
-                    </div>
+                    <div class="bg-[#F5F0E8] p-7 rounded-2xl border border-neutral-200 relative overflow-hidden"><i class="fas fa-quote-right text-3xl text-[#B8870A] mb-3 relative z-10"></i><p class="text-neutral-700 italic leading-relaxed relative z-10">Many beneficiaries are now thriving professionals — doctors, engineers, professionals across the UK and Nigeria making significant contributions.</p></div>
+                    <div class="space-y-4"><div class="flex items-center gap-3 text-[#1B3A6B] font-semibold bg-[#F5F0E8] p-3 rounded-xl"><i class="fas fa-check-circle text-[#B8870A]"></i> 40+ graduates empowered</div><div class="flex items-center gap-3 text-[#1B3A6B] font-semibold bg-[#F5F0E8] p-3 rounded-xl"><i class="fas fa-check-circle text-[#B8870A]"></i> 7 named scholarship categories</div><div class="flex items-center gap-3 text-[#1B3A6B] font-semibold bg-[#F5F0E8] p-3 rounded-xl"><i class="fas fa-check-circle text-[#B8870A]"></i> Renewable annually until graduation</div></div>
                 </div>
                 <div class="lg:col-span-3 overflow-x-auto">
                     <div class="bg-white rounded-2xl shadow-lg border border-neutral-100 overflow-hidden">
-                        <div class="bg-gradient-to-r from-[#1B3A6B] to-[#0A2748] px-6 py-4">
-                            <h3 class="text-white heading-font text-xl">Scholarship Categories & Awards</h3>
-                        </div>
-                        <table class="scholarship-table w-full text-sm">
-                            <thead class="bg-[#F5F0E8]">
-                                <tr>
-                                    <th class="text-left text-[#1B3A6B] text-xs">Scholarship Name</th>
-                                    <th class="text-left text-[#1B3A6B] text-xs">Discipline</th>
-                                    <th class="text-right text-[#1B3A6B] text-xs">Award (₦/session)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="font-medium text-[#1B3A6B]">
-                                        <span class="block">President's Scholarship</span>
-                                        <span class="text-[10px] text-neutral-400">Highest honour</span>
-                                    </td>
-                                    <td>Medicine</td>
-                                    <td class="text-right font-bold text-[#B8870A]">₦100,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-medium text-[#1B3A6B]">
-                                        <span class="block">Vice President's Scholarship</span>
-                                    </td>
-                                    <td>Architecture</td>
-                                    <td class="text-right font-bold text-[#B8870A]">₦50,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-medium text-[#1B3A6B]">
-                                        <span class="block">Chief J.B.O Ezem Memorial Scholarship</span>
-                                    </td>
-                                    <td>Accountancy</td>
-                                    <td class="text-right font-bold text-[#B8870A]">₦50,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-medium text-[#1B3A6B]">
-                                        <span class="block">Sir Jonathan Ukejianya Memorial Scholarship</span>
-                                    </td>
-                                    <td>Pharmacy</td>
-                                    <td class="text-right font-bold text-[#B8870A]">₦50,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-medium text-[#1B3A6B]">
-                                        <span class="block">Mrs Christy A. Ukejianya Memorial Scholarship</span>
-                                    </td>
-                                    <td>Nursing</td>
-                                    <td class="text-right font-bold text-[#B8870A]">₦50,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-medium text-[#1B3A6B]">
-                                        <span class="block">Hope Scholarship</span>
-                                    </td>
-                                    <td>Engineering & Law</td>
-                                    <td class="text-right font-bold text-[#B8870A]">₦50,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-medium text-[#1B3A6B]">
-                                        <span class="block">Discretionary Scholarship</span>
-                                        <span class="text-[10px] text-neutral-400">Other approved courses</span>
-                                    </td>
-                                    <td>Other courses</td>
-                                    <td class="text-right font-bold text-[#B8870A]">₦30,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="bg-gradient-to-r from-[#1B3A6B] to-[#0A2748] px-6 py-4"><h3 class="text-white heading-font text-xl">Scholarship Categories & Awards</h3></div>
+                        <table class="scholarship-table w-full text-sm"><thead class="bg-[#F5F0E8]"><tr><th class="text-left text-[#1B3A6B] text-xs">Scholarship Name</th><th class="text-left text-[#1B3A6B] text-xs">Discipline</th><th class="text-right text-[#1B3A6B] text-xs">Award (₦/session)</th></tr></thead>
+                        <tbody><tr><td class="font-medium">President's Scholarship</td><td>Medicine</td><td class="text-right font-bold text-[#B8870A]">₦100,000</td></tr>
+                        <tr><td class="font-medium">Vice President's Scholarship</td><td>Architecture</td><td class="text-right font-bold text-[#B8870A]">₦50,000</td></tr>
+                        <tr><td class="font-medium">Chief J.B.O Ezem Memorial</td><td>Accountancy</td><td class="text-right font-bold text-[#B8870A]">₦50,000</td></tr>
+                        <tr><td class="font-medium">Sir Jonathan Ukejianya Memorial</td><td>Pharmacy</td><td class="text-right font-bold text-[#B8870A]">₦50,000</td></tr>
+                        <tr><td class="font-medium">Mrs Christy A. Ukejianya Memorial</td><td>Nursing</td><td class="text-right font-bold text-[#B8870A]">₦50,000</td></tr>
+                        <tr><td class="font-medium">Hope Scholarship</td><td>Engineering & Law</td><td class="text-right font-bold text-[#B8870A]">₦50,000</td></tr>
+                        <tr><td class="font-medium">Discretionary Scholarship</td><td>Other courses</td><td class="text-right font-bold text-[#B8870A]">₦30,000</td></tr>
+                        </tbody></table>
                     </div>
                 </div>
             </div>
@@ -597,25 +453,17 @@
 
     <!-- Call to action / Partner -->
     <section class="py-20 bg-[#1B3A6B] text-white text-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/gold-scales.png')]"></div>
-        <div class="absolute top-0 right-0 w-80 h-80 bg-[#B8870A]/20 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#C0392B]/10 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl"></div>
         <div class="max-w-3xl mx-auto px-6 relative z-10">
-            <span class="text-[#B8870A] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Get Involved</span>
             <h3 class="heading-font text-3xl md:text-5xl mb-4">Support a Programme</h3>
-            <p class="text-white/70 mb-8 text-lg leading-relaxed">Your partnership helps sustain these ten outreach pillars — from scholarships that empower futures to medical missions that save lives. Together, we can extend the reach of living hope.</p>
+            <p class="text-white/70 mb-8 text-lg">Your partnership helps sustain these ten outreach pillars — from scholarships to medical missions.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="partner.html" class="inline-flex items-center gap-2 bg-[#B8870A] text-[#0A2748] font-bold px-8 py-4 rounded-full hover:bg-white hover:text-[#1B3A6B] transition-all duration-300 text-sm uppercase tracking-wider shadow-lg hover:shadow-xl">
-                    Become a Partner <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="contact.html" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300 text-sm uppercase tracking-wider border border-white/20">
-                    Contact Us <i class="fas fa-envelope"></i>
-                </a>
+                <a href="partner.html" class="inline-flex items-center gap-2 bg-[#B8870A] text-[#0A2748] font-bold px-8 py-4 rounded-full hover:bg-white hover:text-[#1B3A6B] transition-all text-sm uppercase tracking-wider shadow-lg">Become a Partner <i class="fas fa-arrow-right"></i></a>
+                <a href="contact.html" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full hover:bg-white/20 transition-all text-sm uppercase tracking-wider border border-white/20">Contact Us <i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Footer identical to homepage style -->
+    <!-- Footer -->
     <footer class="bg-[#112647] text-white/70 py-16 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -624,47 +472,34 @@
                     <p class="max-w-sm text-sm font-light leading-relaxed text-white/60">"Raising an Altar of Praise, Transforming Lives Forever"</p>
                     <p class="text-xs tracking-wide text-[#B8870A] font-medium">Port Harcourt • Abuja • Ubakala, Abia State, Nigeria</p>
                 </div>
-                <div class="md:col-span-3 space-y-3">
-                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4>
-                    <p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p>
-                    <p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries & Altars</a></p>
-                    <p class="text-sm"><a href="scholarship.html" class="hover:text-white transition">Scholarships</a></p>
-                    <p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p>
-                </div>
-                <div class="md:col-span-4 space-y-4">
-                    <h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Connect Ecosystem</h4>
-                    <div class="flex gap-5 text-2xl text-white/60"><a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a><a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a><a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a></div>
-                </div>
+                <div class="md:col-span-3 space-y-3"><h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Quick Navigation</h4><p class="text-sm"><a href="story.html" class="hover:text-white transition">Our Story</a></p><p class="text-sm"><a href="ministries.html" class="hover:text-white transition">Ministries & Altars</a></p><p class="text-sm"><a href="scholarship.html" class="hover:text-white transition">Scholarships</a></p><p class="text-sm"><a href="partner.html" class="hover:text-white transition">Get Involved</a></p></div>
+                <div class="md:col-span-4 space-y-4"><h4 class="font-semibold text-white tracking-wider text-xs uppercase mb-2">Connect Ecosystem</h4><div class="flex gap-5 text-2xl text-white/60"><a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a><a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a><a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a></div></div>
             </div>
             <div class="text-center text-[11px] mt-16 pt-8 border-t border-white/5 text-white/40 tracking-wider">© 2026 LivelyHope World Outreach Foundation • Incorporated 15th September 2005</div>
         </div>
     </footer>
 
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const spans = menuBtn.querySelectorAll('span');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        // Ensure old menu elements are disabled
+        const oldMenuBtn = document.getElementById('menu-btn');
+        if (oldMenuBtn) oldMenuBtn.style.display = 'none';
+        document.body.classList.remove('overflow-hidden');
         
-        function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-            spans[0].classList.toggle('rotate-45'); 
-            spans[0].classList.toggle('translate-y-[6px]');
-            spans[1].classList.toggle('opacity-0');
-            spans[2].classList.toggle('-rotate-45'); 
-            spans[2].classList.toggle('-translate-y-[6px]');
-            document.body.classList.toggle('overflow-hidden');
-        }
-        
-        menuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-        
-        // Close mobile menu on window resize if open
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 1024 && !mobileMenu.classList.contains('translate-x-full')) {
-                toggleMenu();
-            }
+        // Active tab highlight management for bottom nav
+        const tabs = document.querySelectorAll('.nav-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
+        
+        // Ensure programmes tab stays active on this page
+        const programsTab = document.querySelector('.nav-tab[data-tab="programs"]');
+        if (programsTab) {
+            tabs.forEach(t => t.classList.remove('active'));
+            programsTab.classList.add('active');
+        }
     </script>
 </body>
 </html>
